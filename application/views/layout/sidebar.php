@@ -35,6 +35,9 @@ if (!isset($sess)) {
                 <li class="" id="side_invoice">
                     <a href="<?= base_url() ?>Invoicemaster" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
                 </li>
+                <li class="" id="side_embed">
+                    <a href="<?= base_url() ?>Embed" class="px-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
+                </li>
                 <li>
                     <a onclick="logout();" style="cursor: pointer;" class="px-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
                         Logout</a>

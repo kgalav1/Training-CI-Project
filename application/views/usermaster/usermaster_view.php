@@ -167,7 +167,7 @@
             apply();
 
             $("#side_user").addClass("active");
-
+            $('form:first *:input[type!=hidden]:first').focus();
 
 
         });
