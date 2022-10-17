@@ -58,6 +58,9 @@ function sort(sort_type, field) {
     if (action == "invoice") {
         invoice_search();
     }
+    if (action == "logs") {
+        logs_search();
+    }
 
 }
 
@@ -166,6 +169,36 @@ function invoice_search(page) {
     });
 }
 
+// ------------------------------ UserLog search--------------------------------
+
+function log_search(page) {
+    var action = $("#action").val();
+    var id = $("#sid").val();
+    var type = $("#stype").val();
+    var name = $("#sname").val();
+    var limit = $("#list").val();
+    var sort_field = $("#sort_field").val() == "" ? "sno" : $("#sort_field").val();
+    var sort_type = $("#sort_type").val() == "" ? "asc" : $("#sort_type").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/ciproject/Userlogs/pagination",
+        data: {
+            action: action,
+            id: id,
+            type: type,
+            name: name,
+            limit: limit,
+            page: page,
+            sort_field: sort_field,
+            sort_type: sort_type
+        },
+        dataType: 'Json',
+        success: function (data) {
+            $("#data").html(data.table_data);
+            $("#pagin").html(data.pagination);
+        },
+    });
+}
 
 // ------------------------------ Tab Hide Function--------------------------------
 
@@ -311,6 +344,13 @@ function clear_val(data) {
         $("#sphone").val("");
         invoice_search();
     }
+
+    if (data == 'logs') {
+        $("#sid").val("");
+       $("#stype").val("");
+        $("#sname").val("");
+        log_search();
+    }
 }
 
 function darkMode() {
@@ -344,3 +384,9 @@ function findDark() {
         localStorage.setItem("theme", "light");
     }
 }
+
+$('.sub-menu ul').hide();
+$(".sub-menu a").click(function () {
+	$(this).parent(".sub-menu").children("ul").slideToggle("100");
+	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+});

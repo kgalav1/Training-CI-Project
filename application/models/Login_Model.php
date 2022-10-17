@@ -15,14 +15,16 @@ class Login_Model extends CI_Model
         
         if (password_verify($pass, $passfromdb)) {
             $newdata = array(
-                'name'     => $rows[0]->name,
-                'email'  => $email,
+                'sno' => $rows[0]->sno,
+                'name' => $rows[0]->name,
+                'email' => $email,
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($newdata);
-            echo "104";
+            return array('code' => '104', 'msg' => 'SuccesFully Login');
+            // echo "104";
         } else {
-            echo "101";
+            return array('code' => '101', 'msg' => 'Something Wrong');
         }
     }
 
@@ -35,6 +37,12 @@ class Login_Model extends CI_Model
             $data['title'] = "Dashboard";
         }
         return $data;
+    }
+
+    public function enterUserLog($logData)
+    {
+        // print_r($logData);die;
+        $this->db->insert('userlogs', $logData);
     }
 
 }

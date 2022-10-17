@@ -267,7 +267,7 @@
                         "display": "block"
                     });
                     // $('#imagediv').html('');
-                    $("#preview").attr("src", "upload/" + responce.image + "");
+                    $("#preview").attr("src", responce.image);
                     $('#form_action').val("edit");
                     $('#submit').val("Update");
                     $("#passworddiv").addClass("d-none");

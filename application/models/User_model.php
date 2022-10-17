@@ -53,8 +53,14 @@ class User_Model extends CI_Model
                     'token' => $token,
                     'status' => 'active'
                 );
-                $this->db->insert('signupdetails', $data); // return 1 if user successfully submit in database table user
-                echo "2";
+                $responce = $this->db->insert('signupdetails', $data); // return 1 if user successfully submit in database table user
+                if($responce){
+
+                    return array('code' => '2', 'msg' => 'SuccesFully Added');
+                }else{
+                    
+                    return array('code' => '420', 'msg' => 'error');
+                }
             }
         } else {
             $sno = $data["snoEdit"];
@@ -71,8 +77,14 @@ class User_Model extends CI_Model
                         'phone' => $phone,
                         'password' => $hiddenpassword,
                     );
-                    $this->db->update('signupdetails', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
-                    echo "3";
+                    $responce = $this->db->update('signupdetails', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
+                    if($responce){
+
+                        return array('code' => '3', 'msg' => 'SuccesFully Edit');
+                    }else{
+                        
+                        return array('code' => '420', 'msg' => 'error');
+                    }
                 } else {
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $data = array(
@@ -81,8 +93,14 @@ class User_Model extends CI_Model
                         'phone' => $phone,
                         'password' => $hash,
                     );
-                    $this->db->update('signupdetails', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
-                    echo "3";
+                    $responce = $this->db->update('signupdetails', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
+                    if($responce){
+
+                        return array('code' => '3', 'msg' => 'SuccesFully Edit');
+                    }else{
+                        
+                        return array('code' => '420', 'msg' => 'error');
+                    }
                 }
             }
         }
@@ -103,8 +121,14 @@ class User_Model extends CI_Model
     {
         $sno = $data['delete_id'];
         $this->db->where('sno', $sno);
-        $this->db->delete('signupdetails');
-        echo "4";
+        $responce = $this->db->delete('signupdetails');
+        if($responce){
+
+            return array('code' => '4', 'msg' => 'SuccesFully Deleted');
+        }else{
+            
+            return array('code' => '420', 'msg' => 'error');
+        }
     }
 
 

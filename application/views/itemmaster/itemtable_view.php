@@ -13,7 +13,7 @@ if ($result['total'] > 0) {
         <td onclick = 'itemEdit(<?= $row->sno ?>);' style='cursor:pointer;'><?= $row->name ?></td>
         <td><?= $row->desc ?></td>
         <td><?= $row->price ?></td>
-        <td> <img class='image' src="<?= base_url("upload/$row->image") ?>"> </td>
+        <td> <img class='image' src="<?= base_url("$row->image") ?>"> </td>
         <td> <button type='button' class='edit bremove'><img onclick = 'itemEdit(<?= $row->sno ?>);'style='width:22px' src='<?= base_url() ?>assets/images/edit.png' alt='edit'></button>
             <button type='button' value=<?= $row->sno ?> class='delete bremove'><img style='width:22px' src='<?= base_url() ?>assets/images/delete.png' alt='delete'></button></td>
         </tr>

@@ -39,7 +39,7 @@ class Invoice_Model extends CI_Model
         $page = isset($data['page']) ? $data['page'] : '1';
         $offset = ($page - 1) * $limit;
 
-        $array = array('sno' => $sid, 'client_name' => $sname, 'email' => $semail, 'phone' => $sphone);
+        $array = array('invoice_id' => $sid, 'client_name' => $sname, 'email' => $semail, 'phone' => $sphone);
 
 
         $search = $this->db->select('main_invoice.invoice_id, clientmaster.client_name, clientmaster.email, clientmaster.phone, CONCAT_WS(",", clientmaster.address, states.name,cities.name) AS address, main_invoice.grand_total')->from('clientmaster')->join('states', 'clientmaster.state=states.id', 'inner')->join('cities', 'clientmaster.city=cities.id', 'inner')->join('main_invoice', 'main_invoice.client_id = clientmaster.sno', 'inner')->where(1, 1)->like($array)->limit($limit, $offset)->order_by($sort_field, $sort_type)->get();

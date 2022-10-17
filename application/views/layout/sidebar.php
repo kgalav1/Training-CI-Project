@@ -15,8 +15,8 @@ if (!isset($sess)) {
             </div>
             <ul class="list-unstyled components mt-4" id="sideul">
                 <li class="" id="side_search">
-                    <a class="InputSearch">
-                        <img src="<?= base_url() ?>assets/images/search.png" style="width: 23px; top: 114px; left: 14px; " alt="" class="position-absolute" align="center">
+                    <a class="InputSearch" style="position: relative;">
+                        <img src="<?= base_url() ?>assets/images/search.png" style="width: 23px; top: 12px; left: 14px; " alt="" class="position-absolute" align="center">
                         <input type="text" id="myinput" placeholder="Search here" class="px-5 side_se" onkeyup="searchside()" maxlength="15"></a>
                 </li>
                 <li class="" id="side_dashboard">
@@ -35,18 +35,26 @@ if (!isset($sess)) {
                 <li class="" id="side_invoice">
                     <a href="<?= base_url() ?>Invoicemaster" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
                 </li>
-                <li class="" id="side_embed">
-                    <a href="<?= base_url() ?>Embed" class="px-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
-                </li>
-                <li>
-                    <a onclick="logout();" style="cursor: pointer;" class="px-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
-                        Logout</a>
-                </li>
-                <li>
-                    <a style="cursor: pointer;" class="px-3" onclick="darkMode()"> <span class="fa-solid fa-toggle-off me-2" id="dark"></span>
-                        Drak Mode</a>
-                </li>
+                <li class='sub-menu'><a href="#settings" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/settings.png" style="width: 20px; margin-right: 10px">
+                        Settings<div class='fa fa-caret-down right' style="margin-left: 110px;"></div></a>
+                    <ul style="padding-left: 0px !important; margin-left: 0px;" id="side_settings" class="">
+                        <li class="" id="side_logs">
+                            <a href="<?= base_url() ?>Userlogs" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
+                        </li>
+                        <li class="" id="side_embed">
+                            <a href="<?= base_url() ?>Embed" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="ps-5 pe-3" onclick="darkMode()"> <span class="fa-solid fa-toggle-off me-2" id="dark"></span>
+                                Drak Mode</a>
+                        </li>
+                        <li>
+                            <a onclick="logout();" style="cursor: pointer;" class="ps-5 pe-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
+                                Logout</a>
+                        </li>
 
+                    </ul>
+                </li>
             </ul>
 
         </div>

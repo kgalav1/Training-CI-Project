@@ -43,9 +43,9 @@
 
                                 <div class="mb-4 mx-3 d-inline-block">
                                     <input type="hidden" name="action" id="action" value="user" />
-                                    <button type="button" name="search" id="search" class="btn btn-primary" onclick="user_search()"> <i class="fa-solid fa-magnifying-glass me-2"></i>Search
+                                    <button type="button" name="search" id="search" class="btn btn-primary" onclick="user_search(); clickME();"> <i class="fa-solid fa-magnifying-glass me-2"></i>Search
                                     </button>
-                                    <button type="button" name="reset" id="reset" class="btn btn-success ms-2" onclick="clear_val('user')"> <i class="fa-solid fa-rotate-right me-2"></i>Reset
+                                    <button type="button" name="reset" id="reset" class="btn btn-success ms-2" onclick="clear_val('user');"> <i class="fa-solid fa-rotate-right me-2"></i>Reset
                                     </button>
                                     <!-- <button type="button" name="excel" id="excel" class="btn btn-success ms-2"> <i class="fa-solid fa-rotate-right me-2"></i>Excel
                                     </button> -->
@@ -68,7 +68,7 @@
                             </select>
                         </div>
                         <div>
-                            <div class="table-container">
+                            <div class="table-container" style="height: 300px; overflow:auto">
                                 <table class="table table-striped">
                                     <thead class="tr">
                                         <tr class="table-primary">
@@ -174,7 +174,7 @@
         $(function() {
             $(".pr-password").passwordRequirements();
 
-        });
+        }); 
 
         //--------------------------- User submit and edit -------------------------------
 
@@ -320,35 +320,35 @@
         });
 
         $("#excel").on('click', function() {
-                    alert();
-                    var page = $("#pagi li.active a").attr("id");
-                    var action = $("#action").val();
-                    var name = $("#sname").val();
-                    var email = $("#semail").val();
-                    var phone = $("#sphone").val();
-                    var limit = $("#list").val();
-                    var sort_field = $("#sort_field").val() == "" ? "sno" : $("#sort_field").val();
-                    var sort_type = $("#sort_type").val() == "" ? "asc" : $("#sort_type").val();
-                    $.ajax({
-                        type: "POST",
-                        url: "http://localhost/ciproject/Usermaster/action",
-                        data: {
-                            action: action,
-                            name: name,
-                            email: email,
-                            phone: phone,
-                            limit: limit,
-                            page: page,
-                            sort_field: sort_field,
-                            sort_type: sort_type
-                        },
-                        dataType: 'Json',
-                        success: function(data) {
-                            $("#data").html(data.table_data);
-                            $("#pagin").html(data.pagination);
-                        },
-                    });
-                });
+            alert();
+            var page = $("#pagi li.active a").attr("id");
+            var action = $("#action").val();
+            var name = $("#sname").val();
+            var email = $("#semail").val();
+            var phone = $("#sphone").val();
+            var limit = $("#list").val();
+            var sort_field = $("#sort_field").val() == "" ? "sno" : $("#sort_field").val();
+            var sort_type = $("#sort_type").val() == "" ? "asc" : $("#sort_type").val();
+            $.ajax({
+                type: "POST",
+                url: "http://localhost/ciproject/Usermaster/action",
+                data: {
+                    action: action,
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    limit: limit,
+                    page: page,
+                    sort_field: sort_field,
+                    sort_type: sort_type
+                },
+                dataType: 'Json',
+                success: function(data) {
+                    $("#data").html(data.table_data);
+                    $("#pagin").html(data.pagination);
+                },
+            });
+        });
     </script>
 </body>
 

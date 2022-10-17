@@ -90,4 +90,15 @@ class Invoicemaster extends CI_Controller
         $this->mailer->sendEmail($data['to'], $data['subject'], $data['emailbody']);
         echo "202";
     }
+
+    public function invoicepdf()
+    {
+        $this->load->view('PDF/pdfset');
+    }
+
+    public function payment()
+    {
+        // $data = $this->input->post();
+        $this->load->view('invoicemaster/payment_view');
+    }
 }

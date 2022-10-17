@@ -35,7 +35,11 @@ class Usermaster extends CI_Controller
     public function deleteuser()
     {
         $data = $this->input->post();
-        $this->User_Model->deleteuser($data);
+        $result = $this->User_Model->deleteuser($data);
+        if ($result['code'] == '4') { //edit
+            $this->fx->generateUserLogs(3, 'User', $data['delete_id'], '');
+            echo "4";
+        }
     }
 
     public function addupdate()
@@ -64,6 +68,14 @@ class Usermaster extends CI_Controller
         $this->form_validation->set_rules($rules);
         if ($this->form_validation->run() == TRUE) {
             $result = $this->User_Model->addupdate($data);
+            if ($result['code'] == '3') { //edit
+                $this->fx->generateUserLogs(2, 'User', $data['sno'], '');
+                echo "3";
+            }
+            if ($result['code'] == '2') {
+                $this->fx->generateUserLogs(1, 'User', '', '');
+                echo "2";
+            }
         } else {
             echo json_encode(array('statusCode' => 400, 'error' => strip_tags(validation_errors())));
             return;
@@ -77,8 +89,9 @@ class Usermaster extends CI_Controller
         // Fx::p($details['rows'][0],1);
         // Fx::p($details['count'], 1);
 
-        $this->load->library('Excel');  
-        echo "hii";die;
+        $this->load->library('Excel');
+        echo "hii";
+        die;
         $object = new PHPExcel();
 
         $this->excel->setActiveSheetIndex(0);
@@ -93,8 +106,9 @@ class Usermaster extends CI_Controller
         }
         $excel_row = 2;
 
-        foreach($details as $excel_data){
-            print_r($excel_data->sno);die;
+        foreach ($details as $excel_data) {
+            print_r($excel_data->sno);
+            die;
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_data['rows'][0]->sno);
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_data['rows'][0]->name);
             $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $excel_data['rows'][0]->email);
@@ -121,6 +135,5 @@ class Usermaster extends CI_Controller
         );
 
         die(json_encode($response));
-
-}
+    }
 }

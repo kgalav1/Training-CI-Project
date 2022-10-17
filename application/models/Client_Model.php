@@ -78,8 +78,14 @@ class Client_Model extends CI_Model
                     'state' => $state,
                     'city' => $city
                 );
-                $this->db->insert('clientmaster', $data); // return 1 if user successfully submit in database table user
-                echo "2";
+                $responce = $this->db->insert('clientmaster', $data); // return 1 if user successfully submit in database table user
+                if($responce){
+
+                    return array('code' => '2', 'msg' => 'SuccesFully Added');
+                }else{
+                    
+                    return array('code' => '420', 'msg' => 'error');
+                }
             }
         } else {
             $sno = $data["sno"];
@@ -98,7 +104,7 @@ class Client_Model extends CI_Model
                         'address' => $address
                     );
                     $this->db->update('clientmaster', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
-                    echo "3";
+                    return array('code' => '3', 'msg' => 'SuccesFully edited');
                 } else {
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $data = array(
@@ -108,8 +114,14 @@ class Client_Model extends CI_Model
                         'password' => $hash,
                         'address' => $address
                     );
-                    $this->db->update('clientmaster', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
-                    echo "3";
+                   $responce =  $this->db->update('clientmaster', $data, "sno = $sno"); // return 1 if user successfully submit in database table user
+                   if($responce){
+
+                    return array('code' => '3', 'msg' => 'SuccesFully Edit');
+                }else{
+                    
+                    return array('code' => '420', 'msg' => 'error');
+                }
                 }
             }
         }
