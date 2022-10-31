@@ -347,7 +347,7 @@ function clear_val(data) {
 
     if (data == 'logs') {
         $("#sid").val("");
-       $("#stype").val("");
+        $("#stype").val("");
         $("#sname").val("");
         log_search();
     }
@@ -387,6 +387,28 @@ function findDark() {
 
 $('.sub-menu ul').hide();
 $(".sub-menu a").click(function () {
-	$(this).parent(".sub-menu").children("ul").slideToggle("100");
-	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+    $(this).parent(".sub-menu").children("ul").slideToggle("100");
+    $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+});
+
+document.addEventListener("keydown", e => {
+    // e.preventDefault();
+    if (e.key.toLowerCase() === "s" && e.altKey) {
+        document.getElementById("myinput").focus();
+    }
+    if (e.key.toLowerCase() === "u" && e.ctrlKey && e.shiftKey) {
+        document.getElementById("user").click();
+    }
+    if (e.key.toLowerCase() === "c" && e.ctrlKey && e.shiftKey) {
+        document.getElementById("client").click();
+    }
+    if (e.key.toLowerCase() === "o" && e.shiftKey && e.altKey) {
+        document.getElementById("item").click();
+    }
+    if (e.key.toLowerCase() === "i" && e.ctrlKey && e.shiftKey) {
+        document.getElementById("invoice").click();
+    }
+    if (e.key.toLowerCase() === "l" && e.ctrlKey && e.shiftKey) {
+        document.getElementById("invoice").click();
+    }
 });

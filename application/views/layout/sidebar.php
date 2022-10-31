@@ -13,36 +13,45 @@ if (!isset($sess)) {
                     <img src="<?= base_url() ?>assets/images/sidebarlogo.png" style="width: 230px;" class="sidebar_logo">
                 </a>
             </div>
-            <ul class="list-unstyled components mt-4" id="sideul">
-                <li class="" id="side_search">
-                    <a class="InputSearch" style="position: relative;">
-                        <img src="<?= base_url() ?>assets/images/search.png" style="width: 23px; top: 12px; left: 14px; " alt="" class="position-absolute" align="center">
-                        <input type="text" id="myinput" placeholder="Search here" class="px-5 side_se" onkeyup="searchside()" maxlength="15"></a>
-                </li>
+
+            <div class="mt-3" id="side_search">
+                <a class="InputSearch" style="position: relative; border-bottom: 1px solid #b9adad87;">
+                    <!-- <img src="<?= base_url() ?>assets/images/search.png" style="width: 23px; top: 12px; left: 14px; " alt="" class="position-absolute" align="center"> -->
+                    <input type="text" id="myinput" placeholder="Search Menu (Alt+S)" class="side_search" onkeyup="searchside()" maxlength="15">
+                </a>
+            </div>
+            <ul class="list-unstyled components mt-2" id="sideul">
                 <li class="" id="side_dashboard">
                     <a href="<?= base_url() ?>Dashboard" class="px-3"><img src="<?= base_url() ?>assets/images/dashbaord-icon.png" style="width: 20px; margin-right: 10px">Dashboard</a>
                 </li>
                 <li class="" id="side_user">
-                    <a href="<?= base_url() ?>Usermaster" class="px-3"><img src="<?= base_url() ?>assets/images/user-icon.png" style="width: 20px; margin-right: 10px">User Master</a>
+                    <a href="<?= base_url() ?>Usermaster" id="user" class="px-3"><img src="<?= base_url() ?>assets/images/user-icon.png" style="width: 20px; margin-right: 10px">User Master</a>
                 </li>
                 <li class="" id="side_client">
-                    <a href="<?= base_url() ?>Clientmaster" class="px-3"><img src="<?= base_url() ?>assets/images/user-group-icon.png" style="width: 20px; margin-right: 10px">Client
+                    <a href="<?= base_url() ?>Clientmaster" id="client" class="px-3"><img src="<?= base_url() ?>assets/images/user-group-icon.png" style="width: 20px; margin-right: 10px">Client
                         Master</a>
                 </li>
                 <li class="" id="side_item">
-                    <a href="<?= base_url() ?>Itemmaster" class="px-3"><img src="<?= base_url() ?>assets/images/company-icon.png" style="width: 20px; margin-right: 10px">Item Master</a>
+                    <a href="<?= base_url() ?>Itemmaster" id="item" class="px-3"><img src="<?= base_url() ?>assets/images/company-icon.png" style="width: 20px; margin-right: 10px">Item Master</a>
                 </li>
                 <li class="" id="side_invoice">
-                    <a href="<?= base_url() ?>Invoicemaster" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
+                    <a href="<?= base_url() ?>Invoicemaster" id="invoice" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
                 </li>
+                <li class="" id="side_logs">
+                            <a href="<?= base_url() ?>Userlogs" id="logs" class="px-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
+                        </li>
                 <li class='sub-menu'><a href="#settings" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/settings.png" style="width: 20px; margin-right: 10px">
-                        Settings<div class='fa fa-caret-down right' style="margin-left: 110px;"></div></a>
+                        Settings<div class='fa fa-caret-down right' style="margin-left: 105px;"></div></a>
                     <ul style="padding-left: 0px !important; margin-left: 0px;" id="side_settings" class="">
-                        <li class="" id="side_logs">
-                            <a href="<?= base_url() ?>Userlogs" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
+                        
+                        <li class="" id="side_shortcut">
+                            <a href="<?= base_url() ?>Shortcut" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/keyboard.png" style="width: 20px; margin-right: 10px">Shortcut Keys</a>
                         </li>
                         <li class="" id="side_embed">
                             <a href="<?= base_url() ?>Embed" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
+                        </li>
+                        <li class="" id="side_theme">
+                            <a href="<?= base_url() ?>Theme" id="theme" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/themes.png" style="width: 20px; margin-right: 10px">Change Theme</a>
                         </li>
                         <li>
                             <a style="cursor: pointer;" class="ps-5 pe-3" onclick="darkMode()"> <span class="fa-solid fa-toggle-off me-2" id="dark"></span>

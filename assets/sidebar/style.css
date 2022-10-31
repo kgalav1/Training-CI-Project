@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --main: rgb(79 131 209);
+  --main-child: rgb(79 131 209 / 80%);
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -11706,7 +11708,7 @@ h5,
 
 .navbar {
   padding: 15px 10px;
-  background: rgb(79, 131, 209);
+  background: var(--main);
   border: none;
   border-radius: 0;
   margin-bottom: 5px;
@@ -11734,7 +11736,7 @@ h5,
 }
 
 #sidebar {
-  min-width: 260px;
+  min-width: 250px;
   max-width: 300px;
   background: #FFF;
   color: #fff;
@@ -11746,7 +11748,7 @@ h5,
 }
 
 #sidebar.active {
-  margin-left: -300px;
+  margin-left: -248px;
 }
 
 #sidebar .logo {

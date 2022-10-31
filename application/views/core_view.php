@@ -21,6 +21,13 @@
 
         <?php $this->load->view('layout/footer'); ?>
 
+        <script>
+            $(document).ready(function() {
+                $(".sub-menu").addClass("active");
+                $("#side_embed").addClass("active");
+            });
+        </script>
+
 </body>
 
 </html>
