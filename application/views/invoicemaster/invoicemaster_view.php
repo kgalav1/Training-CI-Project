@@ -70,8 +70,8 @@
                         </div>
                         <div class="table-container" style="max-height: 335px;">
                             <table class="table table-striped">
-                                <thead>
-                                    <tr class="table-primary">
+                                <thead class="tr">
+                                    <tr class="trcolor">
                                         <!-- <th>S No.</th> -->
                                         <th><a href="javascript:void(0);" class="asc" onclick="sort(`asc`, `invoice_id`)">
                                                 Invoice Id<i class="fa fa-sort-asc d-asc" aria-hidden="true" style="display: none; "></i></a>

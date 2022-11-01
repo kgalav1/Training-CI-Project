@@ -71,7 +71,7 @@
                             <div class="table-container" style="height: 300px; overflow:auto">
                                 <table class="table table-striped">
                                     <thead class="tr">
-                                        <tr class="table-primary">
+                                        <tr class="trcolor">
                                             <th><a href="javascript:void(0);" class="asc" onclick="sort(`asc`,`sno`)">S
                                                     No.
                                                     <i class="fa fa-sort-asc d-asc" aria-hidden="true" style="display: none"></i></a>

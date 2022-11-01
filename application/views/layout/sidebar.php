@@ -38,12 +38,12 @@ if (!isset($sess)) {
                     <a href="<?= base_url() ?>Invoicemaster" id="invoice" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
                 </li>
                 <li class="" id="side_logs">
-                            <a href="<?= base_url() ?>Userlogs" id="logs" class="px-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
-                        </li>
+                    <a href="<?= base_url() ?>Userlogs" id="logs" class="px-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
+                </li>
                 <li class='sub-menu'><a href="#settings" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/settings.png" style="width: 20px; margin-right: 10px">
                         Settings<div class='fa fa-caret-down right' style="margin-left: 105px;"></div></a>
                     <ul style="padding-left: 0px !important; margin-left: 0px;" id="side_settings" class="">
-                        
+
                         <li class="" id="side_shortcut">
                             <a href="<?= base_url() ?>Shortcut" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/keyboard.png" style="width: 20px; margin-right: 10px">Shortcut Keys</a>
                         </li>
@@ -61,11 +61,9 @@ if (!isset($sess)) {
                             <a onclick="logout();" style="cursor: pointer;" class="ps-5 pe-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
                                 Logout</a>
                         </li>
-
                     </ul>
                 </li>
             </ul>
-
         </div>
     </nav>
 
@@ -82,6 +80,55 @@ if (!isset($sess)) {
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
+
+                <ul class="navbar-nav float-right" style="position: relative; left: 950px; top: 10px; font-size: 28px;">
+                    <!-- Search -->
+
+                    <!-- Change Theme Button -->
+                    <li class="nav-item dropdown" style="list-style: none;">
+                        <!-- User profile and search -->
+                        <a class="nav-link waves-effect waves-dark pro-pic" title="Change Theme" href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" style="border:0px; bottom: 8px; position: relative;">
+                            <i class="fa-solid fa-palette" style="color: #fff"></i>
+                        </a>
+                        <div class="dropdown-menu" id="droptheme" aria-labelledby="dropdownMenuButton1" style="">
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #8691CD; color: black; border-color: #B1B9DF; text-decoration-color: #fff;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #8691CD;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Purple
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #72CA88; color: black; border-color: #A5DDB3; text-decoration-color: #fff;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #72CA88;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Light Green
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #3aa576; color: black; border-color: #8ed7b7; text-decoration-color: #fff;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #3aa576;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Green
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: rgb(79,131,209); color: black; border-color: #A6C1E7; text-decoration-color: White;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: rgb(79,131,209);"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Blue
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #00B4B5; color: black; border-color: #5CCFD0; text-decoration-color: White;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #00B4B5;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Iris Blue
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #E0A4B3; color: black; border-color: #EBC5CE; text-decoration-color: #fff;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #E0A4B3;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Blossom
+                            </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #DD6B34; color: black; border-color: #E9A17D; text-decoration-color: White;">
+                                <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #DD6B34;"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Orange
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">

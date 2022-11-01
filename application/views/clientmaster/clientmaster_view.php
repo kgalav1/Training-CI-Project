@@ -65,8 +65,8 @@
                         <div>
                             <div class="table-container">
                                 <table class="table table-striped">
-                                    <thead>
-                                        <tr class="table-primary">
+                                    <thead class="tr">
+                                        <tr class="trcolor">
                                             <th><a href="javascript:void(0);" class="asc" onclick="sort(`asc`,`sno`)">S
                                                     No.
                                                     <i class="fa fa-sort-asc d-asc" aria-hidden="true" style="display: none"></i></a>

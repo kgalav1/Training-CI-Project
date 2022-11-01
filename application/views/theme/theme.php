@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12" style="display:flex; justify-content:end;">
-                                        <button type="submit" id="done" class="btn btn-primary btn-sm">Done</button>
+                                        <!-- <button type="submit" id="done" class="btn btn-primary btn-sm">Done</button> -->
                                     </div>
                                 </div>
                             </form>
@@ -56,27 +56,27 @@
         });
 
 
-        $('#colormaster').on('submit', function(event) {
-            event.preventDefault();
-            let data = new FormData(this);
-            $.ajax({
-                url: "<?= base_url() ?>Theme/update",
-                method: "POST",
-                data: data,
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    if (data == "11") {
-                        $.notify("Please Refresh to see changes", {
-                            globalPosition: 'bottom right',
-                            className: 'success'
-                        });
-                    }
-                }
-            });
+        // $('#colormaster').on('submit', function(event) {
+        //     event.preventDefault();
+        //     let data = new FormData(this);
+        //     $.ajax({
+        //         url: "<?= base_url() ?>Theme/update",
+        //         method: "POST",
+        //         data: data,
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             if (data == "11") {
+        //                 $.notify("Please Refresh to see changes", {
+        //                     globalPosition: 'bottom right',
+        //                     className: 'success'
+        //                 });
+        //             }
+        //         }
+        //     });
 
-        });
+        // });
     </script>
 
 </body>

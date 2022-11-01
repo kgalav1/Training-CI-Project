@@ -5579,8 +5579,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: var(--main);
+  border-color: var(--main);
 }
 
 .page-item.disabled .page-link {
@@ -11791,7 +11791,7 @@ h5,
 }
 
 #sidebar ul li.active>a {
-  background: rgb(79, 131, 209);
+  background: var(--main);
   color: white;
 }
 

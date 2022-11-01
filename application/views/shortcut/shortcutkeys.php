@@ -25,7 +25,7 @@
                             <div class="table-container" style="height: 550px; overflow:auto">
                                 <table class="table table-striped">
                                     <thead class="tr">
-                                        <tr class="table-primary">
+                                        <tr class="trcolor">
                                             <th>Sr No.</th>
                                             <th>Command</th>
                                             <th>Keybinding</th>

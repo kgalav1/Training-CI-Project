@@ -412,3 +412,29 @@ document.addEventListener("keydown", e => {
         document.getElementById("invoice").click();
     }
 });
+
+
+function changecolor(e) {
+    var colorbg = e.style.columnRuleColor;
+    // var colortext = e.style.textDecorationColor;
+    // var colortextchild = e.style.color;
+    var colorbgchild = e.style.borderColor;
+    localStorage.setItem("colorbg", colorbg);
+    localStorage.setItem("colorbgchild", colorbgchild);
+    // localStorage.setItem("colortext", colortext);
+    // localStorage.setItem("colortextchild", colortextchild);
+  }
+  
+  var r = document.querySelector(':root');
+  function myFunction_set() {
+    var colorbg = localStorage.getItem("colorbg");
+    // var colortext = localStorage.getItem("colortext");
+    // var colortextchild = localStorage.getItem("colortextchild", colortextchild);
+    var colorbgchild = localStorage.getItem("colorbgchild");
+    r.style.setProperty('--main', colorbg);
+    r.style.setProperty('--main-child', colorbgchild);
+    // r.style.setProperty('--mainText', colortext);
+    // r.style.setProperty('--mainTextChild', colortextchild);
+  }
+  
+  window.onload = myFunction_set();
