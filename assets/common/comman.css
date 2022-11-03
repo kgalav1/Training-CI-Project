@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
 
 
-:root{
+:root {
     --main: rgb(79 131 209);
-    --main-child: rgb(79 131 209 / 80%);
+    --main-child: rgb(79 131 209 / 70%);
+    --font-family-custom: 'Mukta', sans-serif;
 }
 
 .dataTables_wrapper .dataTables_filter input {
@@ -16,7 +19,7 @@
     margin-bottom: 15px;
 }
 
-.trcolor{
+.trcolor {
     background-color: var(--main);
 }
 
@@ -26,9 +29,11 @@
     /* font-weight: bolder; */
 }
 
-body{
-    font-family: 'Roboto Slab', serif;
+body {
+    /* font-family: 'Roboto Slab', serif; */
+    font-family: var(--font-family-custom);
 }
+
 .seprate {
     margin-top: 40px;
     height: 10px;
@@ -50,7 +55,7 @@ body{
     padding: 0.375rem 0.75rem;
     font-weight: 400;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--main-child);
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
@@ -71,7 +76,7 @@ body{
     background: none;
 }
 
-.image{
+.image {
     height: 80px;
     width: 80px;
 }
@@ -80,13 +85,21 @@ body{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.imageitem{
+.imageitem {
     height: 80px;
     width: 80px;
     border: 2px solid black;
 }
 
-.preview{
+#side_settings>li>a>.fa-solid {
+    color: var(--main);
+}
+
+.udropdown>a>span {
+    color: var(--main);
+}
+
+.preview {
     position: relative;
     height: 85px;
     width: 85px;
@@ -198,16 +211,16 @@ body{
 
 } */
 
-#sidebar ul li a.green{
+#sidebar ul li a.green {
     color: white;
 }
 
-#sidebar ul li a:hover.green{
+#sidebar ul li a:hover.green {
     color: black;
     background-color: white;
 }
 
-#sidebar ul li.active>a.green{
+#sidebar ul li.active>a.green {
     background-color: white;
     color: black;
 }
@@ -218,7 +231,7 @@ body{
     border: none;
 } */
 
-.side_search{
+.side_search {
     width: 95%;
     border-radius: 3px;
     border: 1px solid #00000012;
@@ -233,39 +246,39 @@ body{
     box-shadow: 1px 2px 4px 1px #afa2a25c;
 }
 
-#sidebar ul #side_search a:hover.green{
-     background-color: black !important;
+#sidebar ul #side_search a:hover.green {
+    background-color: black !important;
 }
 
-.side_se.green{
+.side_se.green {
     background-color: black;
     color: white;
 }
 
-.green{
+.green {
     background-color: black;
     color: white;
 }
 
-.mybox.green{
+.mybox.green {
     box-shadow: rgb(255 255 255 / 48%) 0px 2px 8px 0px;
 }
 
-.form-control:focus.green{
+.form-control:focus.green {
     background-color: black;
     color: white;
 }
 
-.form-control.green{
+.form-control.green {
     background-color: black;
     color: white;
 }
 
-.nav-link.green{
+.nav-link.green {
     color: white;
 }
 
-.nav-tabs .nav-link.active.green{
+.nav-tabs .nav-link.active.green {
     background-color: black;
     color: white;
     border-color: white;
@@ -274,60 +287,71 @@ body{
 input,
 input::placeholder {
     font-size: 15px;
-    font-family: 'Roboto Slab', serif;
+    font-family: var(--font-family-custom);
 }
 
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-   
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--main); 
-     border-radius: 50px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
 
-  .nav-tabs>button{
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main);
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.nav-tabs>button {
     padding: 2px 12px !important;
     line-height: 1.42;
     background-color: var(--main) !important;
     color: white;
     height: 30px;
-  }
-  .nav-tabs>button.active{
+}
+
+.nav-tabs>button.active {
     padding: 2px 12px !important;
     line-height: 1.42;
     background-color: white !important;
     color: black;
     height: 30px;
-  }
-  .nav-tabs>button:hover{
+}
+
+.nav-tabs>button:hover {
     color: white;
-  }
+}
 
-  .sub-menu>ul>li.active>a{
+.sub-menu>ul>li.active>a {
     background-color: var(--main-child);
-  }
+}
 
-  .paint_logo{
+.paint_logo {
     position: relative;
     left: 995px;
-   
-  }
+
+}
 
 
-  #droptheme{
+#droptheme {
     top: 73%;
     left: -38px !important;
-  }
+}
+
+.dropdown-menu {
+    left: -29px !important;
+    min-width: 14rem;
+}
+
+.prof {
+    padding: 10px 10px 0px 10px;
+}

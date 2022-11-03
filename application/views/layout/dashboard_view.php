@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header'); ?>
 
-<title><?=$title?></title>
+<title><?= $title ?></title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
         <section>
             <div class="row">
                 <div class="col-xl-6 col-sm-12 col-12 mb-4">
-                    <div class="card">
+                    <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Usermaster" class="a">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between px-md-1 my-auto">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-sm-12 col-12 mb-4">
-                    <div class="card">
+                    <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Clientmaster" class="a">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between px-md-1">
@@ -47,7 +47,7 @@
             </div>
             <div class="row">
                 <div class="col-xl-6 col-sm-12 col-12 mb-4">
-                    <div class="card">
+                    <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Itemmaster" class="a">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between px-md-1">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-sm-12 col-12 mb-4">
-                    <div class="card">
+                    <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Invoicemaster" class="a">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between px-md-1">

@@ -50,18 +50,19 @@ if (!isset($sess)) {
                         <li class="" id="side_embed">
                             <a href="<?= base_url() ?>Embed" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
                         </li>
-                        <li class="" id="side_theme">
-                            <a href="<?= base_url() ?>Theme" id="theme" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/themes.png" style="width: 20px; margin-right: 10px">Change Theme</a>
+                        <li class="" id="side_profile">
+                            <a href="<?= base_url() ?>Profile" id="profile" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/themes.png" style="width: 20px; margin-right: 10px">Edit Profile</a>
                         </li>
                         <li>
                             <a style="cursor: pointer;" class="ps-5 pe-3" onclick="darkMode()"> <span class="fa-solid fa-toggle-off me-2" id="dark"></span>
                                 Drak Mode</a>
                         </li>
-                        <li>
-                            <a onclick="logout();" style="cursor: pointer;" class="ps-5 pe-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
-                                Logout</a>
-                        </li>
+
                     </ul>
+                </li>
+                <li>
+                    <a onclick="logout();" style="cursor: pointer;" class="px-3"> <span class="fa-solid fa-right-from-bracket me-2"></span>
+                        Logout</a>
                 </li>
             </ul>
         </div>
@@ -90,7 +91,7 @@ if (!isset($sess)) {
                         <a class="nav-link waves-effect waves-dark pro-pic" title="Change Theme" href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" style="border:0px; bottom: 8px; position: relative;">
                             <i class="fa-solid fa-palette" style="color: #fff"></i>
                         </a>
-                        <div class="dropdown-menu" id="droptheme" aria-labelledby="dropdownMenuButton1" style="">
+                        <div class="dropdown-menu" id="droptheme" aria-labelledby="dropdownMenuButton1">
                             <a class="dropdown-item colorup" href="javascript:void(0)" onclick="changecolor(this);myFunction_set()" style="column-rule-color: #8691CD; color: black; border-color: #B1B9DF; text-decoration-color: #fff;">
                                 <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #8691CD;"></i>
                                 &nbsp;&nbsp;&nbsp;&nbsp;Purple
@@ -139,7 +140,25 @@ if (!isset($sess)) {
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <!-- <li> <a class="dropdown-item" href="#"><span class="fa-solid fa-toggle-on me-2"></span> Dark Mode</a></li> -->
-                                <li><a class="dropdown-item" onclick="logout();" href="#"><span class="fa-solid fa-right-from-bracket me-2"></span>Logout</a></li>
+                                <li>
+                                    <div class="row prof">
+                                        <div class="col-md-4">
+                                            <img src="<?= base_url() ?>assets/images/user-image.png" style="width: 70px;">
+                                        </div>
+                                        <div class="col-md-8 text-cenetr">
+                                            <div>
+                                                <?php echo ($_SESSION['name']) ?>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-danger btn-sm"> <a href="<?= base_url() ?>Profile/View">View Profile</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li id="udropdown"><a class="dropdown-item" onclick="logout();" href="#"><span class="fa-solid fa-right-from-bracket me-2"></span>Logout</a></li>
                             </ul>
                         </li>
 
