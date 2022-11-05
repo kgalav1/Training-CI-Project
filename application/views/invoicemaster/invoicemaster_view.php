@@ -7,7 +7,7 @@
     <?php $this->load->view('layout/sidebar'); ?>
 
     <!------------------------------ Tabs Code ------------------------------->
-    <div class="mybox" style="border-radius: 10px;">
+    <div class="mybox animated" style="border-radius: 10px;">
         <div class="container-fluid bg-light p-3 rounded">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -111,7 +111,7 @@
                                     </tr>
 
                                 </thead>
-                                <tbody id="data"></tbody>
+                                <tbody id="data" class="tableanimation"></tbody>
                             </table>
                             <div id="pagin" class="d-flex justify-content-start"></div>
                         </div>

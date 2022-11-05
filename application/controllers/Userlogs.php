@@ -12,7 +12,8 @@ class Userlogs extends CI_Controller
 
     public function index()
     {
-        $this->load->view('userlogs/userlogs_view');
+        $users = $this->Logs_Model->userName();
+        $this->load->view('userlogs/userlogs_view', array('users'=> $users));
     }
 
     public function pagination()

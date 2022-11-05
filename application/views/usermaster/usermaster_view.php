@@ -97,7 +97,7 @@
                                         </tr>
 
                                     </thead>
-                                    <tbody id="data"></tbody>
+                                    <tbody id="data" class="tableanimation"></tbody>
                                 </table>
                             </div>
                             <div id="pagin" class="d-flex justify-content-start"></div>

@@ -7,7 +7,7 @@
     <?php $this->load->view('layout/sidebar'); ?>
 
     <!------------------------------ Tabs Code ------------------------------->
-    <div class="mybox" style="border-radius: 10px;">
+    <div class="mybox animated" style="border-radius: 10px;">
         <div class="container-fluid bg-light p-3 rounded">
 
             <div class="tab-content" id="nav-tabContent">
@@ -31,7 +31,13 @@
 
                                 <div class="mb-3 mx-3 d-inline-block" id="snamediv">
                                     <label for="phone" class="form-label">User Name</label>
-                                    <input type="text" class="form-control" id="sname" name="sname" aria-describedby="emailHelp" maxlength="10"/>
+                                    <!-- <input type="text" class="form-control" id="sname" name="sname" aria-describedby="emailHelp" maxlength="10"/> -->
+                                    <select id="sname" name="sname" class="drop">
+                                        <option selected disabled value="0">--select--</option>
+                                        <?php foreach ($users['users'] as $value) { ?>
+                                            <option value="<?= $value['sno'] ?>"><?= ucfirst($value['name']) ?></option>
+                                        <?php  } ?>
+                                    </select>
                                 </div>
 
                                 <div class="mb-4 mx-3 d-inline-block">
@@ -101,7 +107,7 @@
                                         </tr>
 
                                     </thead>
-                                    <tbody id="data"></tbody>
+                                    <tbody id="data" class="tableanimation"></tbody>
                                 </table>
                             </div>
                             <div id="pagin" class="d-flex justify-content-start"></div>

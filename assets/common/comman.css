@@ -348,8 +348,8 @@ input::placeholder {
 }
 
 .dropdown-menu {
-    left: -29px !important;
-    min-width: 14rem;
+    left: -60px !important;
+    min-width: 16rem;
 }
 
 .prof {

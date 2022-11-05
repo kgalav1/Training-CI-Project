@@ -17,10 +17,20 @@ class Logs_Model extends CI_Model
         $page = isset($data['page']) ? $data['page'] : '1';
         $offset = ($page - 1) * $limit;
 
-        $array = array('u.id' => $sid, 'u.master' => $stype, 's.name' => $sname);
+        $array = array('u.id' => $sid, 'u.master' => $stype);
+        // $array = array('u.id' => $sid, 'u.master' => $stype);
 
-        $search = $this->db->select('u.id, u.master, u.type, u.message, u.remote_ip, u.datetime, s.name')->from('userlogs u')->join('signupdetails s', 'u.user_id = s.sno', 'inner')->where(1, 1)->like($array)->limit($limit, $offset)->order_by($sort_field, $sort_type)->get();
-
+        $this->db->select('u.id, u.master, u.type, u.message, u.remote_ip, u.datetime, s.name');
+        $this->db->from('userlogs u');
+        $this->db->join('signupdetails s', 'u.user_id = s.sno', 'inner');
+        $this->db->where(1, 1);
+        if (!empty($sname)) {
+            $this->db->where('s.sno', $sname);
+        }
+        $this->db->like($array);
+        $this->db->limit($limit, $offset);
+        $search = $this->db->order_by($sort_field, $sort_type)->get();
+        // print_r($this->db->last_query());die;
         $searchresult = $search->result();
         $count_row = $search->num_rows($search);
 
@@ -29,4 +39,9 @@ class Logs_Model extends CI_Model
         return  array('rows' => $searchresult, 'count' => $count_row, 'total' => $total, 'limit' => $limit, 'page' => $page, 'offset' => $offset);
     }
 
+    public function userName()
+    {
+        $users = $this->db->select('sno, name')->from('signupdetails')->order_by('sno')->get()->result_array();
+        return array('users' => $users);
+    }
 }

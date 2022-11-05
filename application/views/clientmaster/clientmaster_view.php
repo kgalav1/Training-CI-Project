@@ -7,7 +7,7 @@
     <?php $this->load->view('layout/sidebar'); ?>
 
     <!------------------------------ Tabs Code ------------------------------->
-    <div class="mybo--x" style="border-radius: 10px;">
+    <div class="mybox animated" style="border-radius: 10px;">
         <div class="container-fluid bg-light p-3 rounded">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -108,7 +108,7 @@
                                         </tr>
 
                                     </thead>
-                                    <tbody id="data"></tbody>
+                                    <tbody id="data" class="tableanimation"></tbody>
                                 </table>
                             </div>
                             <div id="pagin" class="d-flex justify-content-start"></div>
@@ -172,14 +172,14 @@
                                     <div class="mb-3 col-md-3" id="statediv">
                                         <label for="state" class="d-block mb-2">Choose a state<span style="color: red;">*</span><span class="formerror"></span></label>
                                         <select id="state" name="state" class="drop">
-                                        <option selected disabled value="0">Choose a state</option>
+                                            <option selected disabled value="0">Choose a state</option>
                                         </select>
                                     </div>
 
                                     <div class="mb-3 col-md-3" id="citydiv">
                                         <label for="city" class="d-block mb-2">Choose a city<span style="color: red;">*</span><span class="formerror"></span></label>
                                         <select id="city" name="city" class="drop">
-                                        <option selected disabled value="0">Choose a city</option>
+                                            <option selected disabled value="0">Choose a city</option>
                                         </select>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
     <?php $this->load->view('layout/footer'); ?>
 
     <script>
-        $(document).ready(function() { // datatable code       
+        $(document).ready(function() { 
             $(document).on("click", "#pagi a", function(e) {
                 e.preventDefault();
                 var page_id = $(this).attr("id");
@@ -209,7 +209,7 @@
 
             client_search();
             // getCountry();
-            $("#side_client").addClass("active");
+            $("#side_client").addClass("active");          
         });
 
         function hide() {
@@ -288,12 +288,12 @@
                                 className: 'error'
                             });
                         }
-                        if(data.statusCode == 400){
-                        $.notify(data.error, {
-                            globalPosition: 'bottom right',
-                            className: 'error'
-                        });
-                    } 
+                        if (data.statusCode == 400) {
+                            $.notify(data.error, {
+                                globalPosition: 'bottom right',
+                                className: 'error'
+                            });
+                        }
                         if (data == "2") {
                             $.notify("Record Saved Successfully", {
                                 globalPosition: 'bottom right',
@@ -407,7 +407,7 @@
 
             $('#country').on('change', function() {
                 var category_id = this.value;
-               
+
                 $.ajax({
                     url: "<?= base_url() ?>Clientmaster/getState",
                     type: "POST",
@@ -424,9 +424,9 @@
                         var select = document.getElementById('state');
                         $("#state").html('');
                         // $("#city").html('');
-                        select.options[0] = new Option("Choose a state","");
+                        select.options[0] = new Option("Choose a state", "");
                         for (var i = 0; i < (result.state).length; i++) {
-                            select.options[select.options.length] = new Option(result.state[i]['name'],result.state[i]['id']);
+                            select.options[select.options.length] = new Option(result.state[i]['name'], result.state[i]['id']);
                         }
                     }
                 });
@@ -449,9 +449,9 @@
                         console.log(result.city);
                         // $("#city").html('');
                         var select = document.getElementById('city');
-                        select.options[0] = new Option("Choose a city","");
+                        select.options[0] = new Option("Choose a city", "");
                         for (var i = 0; i < (result.city).length; i++) {
-                            select.options[select.options.length] = new Option(result.city[i]['name'],result.city[i]['id']);
+                            select.options[select.options.length] = new Option(result.city[i]['name'], result.city[i]['id']);
                         }
                     }
                 });

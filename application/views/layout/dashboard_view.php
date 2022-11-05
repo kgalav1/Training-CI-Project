@@ -10,7 +10,7 @@
     <div class="container mt-5">
         <section>
             <div class="row">
-                <div class="col-xl-6 col-sm-12 col-12 mb-4">
+                <div class="col-xl-6 col-sm-12 col-12 mb-4 custom">
                     <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Usermaster" class="a">
                             <div class="card-body">
@@ -27,7 +27,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-6 col-sm-12 col-12 mb-4">
+                <div class="col-xl-6 col-sm-12 col-12 mb-4 custom1">
                     <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Clientmaster" class="a">
                             <div class="card-body">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-6 col-sm-12 col-12 mb-4">
+                <div class="col-xl-6 col-sm-12 col-12 mb-4 custom2">
                     <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Itemmaster" class="a">
                             <div class="card-body">
@@ -63,7 +63,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-6 col-sm-12 col-12 mb-4">
+                <div class="col-xl-6 col-sm-12 col-12 mb-4 custom3">
                     <div class="card shadow bg-body">
                         <a href="<?= base_url() ?>Invoicemaster" class="a">
                             <div class="card-body">
@@ -86,6 +86,31 @@
             <script>
                 $(document).ready(function() {
                     $("#side_dashboard").addClass("active");
+
+                    anime({
+                        targets: '.custom',
+                        translateY: [-1500, 0],
+                        duration: 3000
+                        // delay: 1000
+                    });
+                    anime({
+                        targets: '.custom1',
+                        translateY: [-1500, 0],
+                        duration: 3000,
+                        delay: 1000
+                    });
+                    anime({
+                        targets: '.custom2',
+                        translateY: [-1500, 0],
+                        duration: 3000,
+                        delay: 2000
+                    });
+                    anime({
+                        targets: '.custom3',
+                        translateY: [-1500, 0],
+                        duration: 3000,
+                        delay: 3000
+                    });
                 });
             </script>
 </body>

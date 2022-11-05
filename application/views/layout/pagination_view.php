@@ -14,7 +14,7 @@ if ($result['total'] > 0) {
                     } else {
                         $active = "";
                     } ?>
-                    <li class="page-item <?= $active ?>"><a class="page-link" id="<?= $i ?>" href=""><?= $i ?></a></li>
+                    <li class="page-item <?= $active ?>"><a class="page-link" id="<?= $i ?>" href="" onclick="animt()"><?= $i ?></a></li>
                 <?php } ?>
             </ul>
         </nav>

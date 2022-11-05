@@ -40,18 +40,18 @@ if (!isset($sess)) {
                 <li class="" id="side_logs">
                     <a href="<?= base_url() ?>Userlogs" id="logs" class="px-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
                 </li>
+                <li class="" id="side_shortcut">
+                    <a href="<?= base_url() ?>Shortcut" class="px-3"><img src="<?= base_url() ?>assets/images/keyboard.png" style="width: 20px; margin-right: 10px">Shortcut Keys</a>
+                </li>
                 <li class='sub-menu'><a href="#settings" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/settings.png" style="width: 20px; margin-right: 10px">
                         Settings<div class='fa fa-caret-down right' style="margin-left: 105px;"></div></a>
                     <ul style="padding-left: 0px !important; margin-left: 0px;" id="side_settings" class="">
 
-                        <li class="" id="side_shortcut">
-                            <a href="<?= base_url() ?>Shortcut" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/keyboard.png" style="width: 20px; margin-right: 10px">Shortcut Keys</a>
-                        </li>
                         <li class="" id="side_embed">
                             <a href="<?= base_url() ?>Embed" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/core.png" style="width: 20px; margin-right: 10px">Core Project</a>
                         </li>
                         <li class="" id="side_profile">
-                            <a href="<?= base_url() ?>Profile" id="profile" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/themes.png" style="width: 20px; margin-right: 10px">Edit Profile</a>
+                            <a href="<?= base_url() ?>Profile" id="profile" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/user-master-icon.png" style="width: 20px; margin-right: 10px">Edit Profile</a>
                         </li>
                         <li>
                             <a style="cursor: pointer;" class="ps-5 pe-3" onclick="darkMode()"> <span class="fa-solid fa-toggle-off me-2" id="dark"></span>
@@ -135,7 +135,7 @@ if (!isset($sess)) {
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light mt-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 16px; font-weight:500px;"> <img src="<?= base_url() ?>assets/images/user-image.png" style="width: 33px; margin-right:5px;">
-                                <span> <?php echo ($_SESSION['name']) ?></span>
+                                <span> <?php echo ucfirst($_SESSION['name']) ?></span>
                                 <span class="fa fa-angle-down ml-2" style="color: white;"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -145,9 +145,9 @@ if (!isset($sess)) {
                                         <div class="col-md-4">
                                             <img src="<?= base_url() ?>assets/images/user-image.png" style="width: 70px;">
                                         </div>
-                                        <div class="col-md-8 text-cenetr">
+                                        <div class="col-md-8 ps-4">
                                             <div>
-                                                <?php echo ($_SESSION['name']) ?>
+                                                <?php echo ucfirst($_SESSION['name']) ?>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-danger btn-sm"> <a href="<?= base_url() ?>Profile/View">View Profile</a></button>

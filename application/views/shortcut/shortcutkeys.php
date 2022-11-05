@@ -7,7 +7,7 @@
     <?php $this->load->view('layout/sidebar'); ?>
 
     <!------------------------------ Tabs Code ------------------------------->
-    <div class="mybox" style="border-radius: 10px;">
+    <div class="mybox animated" style="border-radius: 10px;">
         <div class="container-fluid bg-light p-3 rounded">
 
             <div class="tab-content" id="nav-tabContent">
@@ -15,11 +15,8 @@
                 <!------------------------------ All Users Form ------------------------------->
 
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-
+                    
                     <!-----------------------Table to fetch data--------------------------->
-
-
                     <div class="mybox mt-2" style="padding: 1%; border-radius: 10px;">
                         <div>
                             <div class="table-container" style="height: 550px; overflow:auto">
@@ -63,7 +60,7 @@
 
     <script>
         $(document).ready(function() {
-            $(".sub-menu").addClass("active");
+            // $(".sub-menu").addClass("active");
             $("#side_shortcut").addClass("active");
         });
     </script>

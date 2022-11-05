@@ -59,7 +59,7 @@ function sort(sort_type, field) {
         invoice_search();
     }
     if (action == "logs") {
-        logs_search();
+        log_search();
     }
 
 }
@@ -177,8 +177,8 @@ function log_search(page) {
     var type = $("#stype").val();
     var name = $("#sname").val();
     var limit = $("#list").val();
-    var sort_field = $("#sort_field").val() == "" ? "sno" : $("#sort_field").val();
-    var sort_type = $("#sort_type").val() == "" ? "asc" : $("#sort_type").val();
+    var sort_field = $("#sort_field").val() == "" ? "datetime" : $("#sort_field").val();
+    var sort_type = $("#sort_type").val() == "" ? "desc" : $("#sort_type").val();
     $.ajax({
         type: "POST",
         url: "http://localhost/ciproject/Userlogs/pagination",
@@ -423,10 +423,10 @@ function changecolor(e) {
     localStorage.setItem("colorbgchild", colorbgchild);
     // localStorage.setItem("colortext", colortext);
     // localStorage.setItem("colortextchild", colortextchild);
-  }
-  
-  var r = document.querySelector(':root');
-  function myFunction_set() {
+}
+
+var r = document.querySelector(':root');
+function myFunction_set() {
     var colorbg = localStorage.getItem("colorbg");
     // var colortext = localStorage.getItem("colortext");
     // var colortextchild = localStorage.getItem("colortextchild", colortextchild);
@@ -435,6 +435,7 @@ function changecolor(e) {
     r.style.setProperty('--main-child', colorbgchild);
     // r.style.setProperty('--mainText', colortext);
     // r.style.setProperty('--mainTextChild', colortextchild);
-  }
-  
-  window.onload = myFunction_set();
+}
+
+window.onload = myFunction_set();
+
