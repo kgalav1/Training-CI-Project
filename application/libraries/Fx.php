@@ -4,28 +4,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Fx
 {
 
-    static function p($p, $t=0)
+    static function p($p, $d = 1)
     {
-        if ($t == "1") {
-            print_r($p);
-        }
-        if ($t == "0") {
+        if ($d == "1") {
             print_r($p);
             die;
+        }
+        if ($d == "0") {
+            print_r($p);
         }
     }
 
     public function generateUserLogs($type = 1, $name, $id = '', $msg = '')
     {
-        // die;
-        $CI =& get_instance();
-        // echo "hu";
+        $CI = &get_instance();
         if (!isset($_SESSION['name']))
-        // echo "hii";die;
             return;
-            $userName = $_SESSION['name'];
-            // echo "hlo";die;
- 
+        $userName = $_SESSION['name'];
+
         switch ($type) {
             case '1':
                 // For Add
