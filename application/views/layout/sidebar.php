@@ -1,10 +1,9 @@
-<?php $sess = $this->session->all_userdata();
-
-if (!isset($sess)) {
-    redirect('http://localhost/ciproject/logout');
+<?php
+if (!$this->session->has_userdata("loginSession")) {
+    redirect("http://localhost/ciproject/Logout/index");
 }
 ?>
-<!-- -----------Navbar Content-------------- -->
+<!-- -----------Navbar Content---------------->
 <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar" class="shadow">
         <div>
@@ -37,12 +36,26 @@ if (!isset($sess)) {
                 <li class="" id="side_invoice">
                     <a href="<?= base_url() ?>Invoicemaster" id="invoice" class="px-3"><img src="<?= base_url() ?>assets/images/report-icon.png" style="width: 20px; margin-right: 10px">Invoice</a>
                 </li>
-                <li class="" id="side_logs">
-                    <a href="<?= base_url() ?>Userlogs" id="logs" class="px-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
-                </li>
+
                 <li class="" id="side_shortcut">
                     <a href="<?= base_url() ?>Shortcut" class="px-3"><img src="<?= base_url() ?>assets/images/keyboard.png" style="width: 20px; margin-right: 10px">Shortcut Keys</a>
                 </li>
+
+                <li class='sub-menu'><a href="#user_role" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/programmer.png" style="width: 20px; margin-right: 10px">
+                        Users & Roles<div class='fa fa-caret-down right' style="margin-left: 71px;"></div></a>
+                    <ul style="padding-left: 0px !important; margin-left: 0px;" id="user_role" class="">
+
+                        <li class="" id="side_logs">
+                            <a href="<?= base_url() ?>Userlogs" id="logs" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/log-file.png" style="width: 20px; margin-right: 10px">User Logs</a>
+                        </li>
+                        <li class="" id="side_loggedinstatus">
+                            <a href="<?= base_url() ?>Loginstatus" id="login_status" class="ps-5 pe-3"><img src="<?= base_url() ?>assets/images/loginstatus.png" style="width: 20px; margin-right: 10px">Login Status</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
                 <li class='sub-menu'><a href="#settings" style="cursor: pointer;" class="px-3"><img src="<?= base_url() ?>assets/images/settings.png" style="width: 20px; margin-right: 10px">
                         Settings<div class='fa fa-caret-down right' style="margin-left: 105px;"></div></a>
                     <ul style="padding-left: 0px !important; margin-left: 0px;" id="side_settings" class="">
@@ -126,16 +139,20 @@ if (!isset($sess)) {
                                 <i class="fa fa-square fa-lg" aria-hidden="true" style="color: #DD6B34;"></i>
                                 &nbsp;&nbsp;&nbsp;&nbsp;Orange
                             </a>
+                            <div class="border-top"> </div>
+                            <a class="dropdown-item colorup" href="javascript:void(0)" id="randomColor" onclick="randomColor();" value>
+                                <i class="fa fa-square fa-lg rand" aria-hidden="true"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Random
+                            </a>
                         </div>
                     </li>
-
                 </ul>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light mt-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 16px; font-weight:500px;"> <img src="<?= base_url() ?>assets/images/user-image.png" style="width: 33px; margin-right:5px;">
-                                <span> <?php echo ucfirst($_SESSION['name']) ?></span>
+                                <span> <?php echo ucfirst($this->session->userdata['loginSession']['name']) ?></span>
                                 <span class="fa fa-angle-down ml-2" style="color: white;"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -147,7 +164,7 @@ if (!isset($sess)) {
                                         </div>
                                         <div class="col-md-8 ps-4">
                                             <div>
-                                                <?php echo ucfirst($_SESSION['name']) ?>
+                                                <?php echo ucfirst($this->session->userdata['loginSession']['name']) ?>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-danger btn-sm"> <a href="<?= base_url() ?>Profile/View">View Profile</a></button>

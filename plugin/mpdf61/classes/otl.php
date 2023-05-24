@@ -3110,7 +3110,7 @@ class otl
 		$ok = true;
 		$matches = array();
 		while ($ok) {
-			$x = ord($dict{$dictptr});
+			$x = ord($dict[$dictptr]);
 			$c = $this->OTLdata[$ptr]['uni'] & 0xFF;
 			if ($x == _DICT_INTERMEDIATE_MATCH) {
 //echo "DICT_INTERMEDIATE_MATCH: ".dechex($c).'<br />';
@@ -3129,11 +3129,11 @@ class otl
 			} else if ($x == _DICT_NODE_TYPE_LINEAR) {
 //echo "DICT_NODE_TYPE_LINEAR: ".dechex($c).'<br />';
 				$dictptr++;
-				$m = ord($dict{$dictptr});
+				$m = ord($dict[$dictptr]);
 				if ($c == $m) {
 					$ptr++;
 					if ($ptr > count($this->OTLdata) - 1) {
-						$next = ord($dict{$dictptr + 1});
+						$next = ord($dict[$dictptr + 1]);
 						if ($next == _DICT_INTERMEDIATE_MATCH || $next == _DICT_FINAL_MATCH) {
 							// Do not match if next character in text is a Mark
 							if (isset($this->OTLdata[$ptr]['uni']) && strpos($this->GlyphClassMarks, $this->OTLdata[$ptr]['hex']) === false) {

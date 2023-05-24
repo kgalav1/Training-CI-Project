@@ -168,13 +168,11 @@
 
             $("#side_user").addClass("active");
             $('form:first *:input[type!=hidden]:first').focus();
-
-
         });
-        $(function() {
-            $(".pr-password").passwordRequirements();
+        // $(function() {
+        //     $(".pr-password").passwordRequirements();
 
-        }); 
+        // });
 
         //--------------------------- User submit and edit -------------------------------
 
@@ -182,7 +180,8 @@
             event.preventDefault();
             var data = new FormData(this);
             data.append('type', "addupdate");
-            var passdol = pass();
+            // var passdol = pass();
+            var passdol = true;
             var valueuser = validateUser();
             if (valueuser == true && passdol == true) {
 
@@ -320,7 +319,6 @@
         });
 
         $("#excel").on('click', function() {
-            alert();
             var page = $("#pagi li.active a").attr("id");
             var action = $("#action").val();
             var name = $("#sname").val();

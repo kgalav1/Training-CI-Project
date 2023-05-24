@@ -22,5 +22,6 @@ class Welcome extends CI_Controller {
 	{
 		$title = "Login Your Account";
 		$this->load->view('login_view', $title);
+		
 	}
 }

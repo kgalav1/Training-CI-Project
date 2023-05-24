@@ -128,7 +128,13 @@
                             });
                         }
                         if (data == 101) {
-                            $.notify("User not present or account not verified", {
+                            $.notify("Wrong Password", {
+                                globalPosition: 'bottom right',
+                                className: 'error'
+                            });
+                        }
+                        if (data == 102) {
+                            $.notify("Something Wrong", {
                                 globalPosition: 'bottom right',
                                 className: 'error'
                             });

@@ -1,4 +1,7 @@
 <?php
+
+use Mpdf\Tag\P;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Invoicemaster extends CI_Controller
@@ -93,12 +96,16 @@ class Invoicemaster extends CI_Controller
 
     public function invoicepdf()
     {
-        $this->load->view('PDF/pdfset');
+        $post = $this->input->post();
+                
+        $this->load->view('PDF/pdfset', array('id' => $post['id']), false);
+        $result = "pdf/invoice-SAN" . $post['id'] . '.pdf';
+        return json_encode(array('result' => $result));
+        
     }
 
     public function payment()
     {
-        // $data = $this->input->post();
         $this->load->view('invoicemaster/payment_view');
     }
 }

@@ -523,8 +523,13 @@
                         type: 'pdfshow'
                     },
                     type: "POST",
-                    dataType: 'JSON',
+                    contentType: false,
+                        cache: false,
+                        processData: false,
+                    dataType: 'json',
                     success: function(data) {
+                        console.log(data);
+                        alert();
                         if (data.result != undefined) {
 
                             window.open(data.result, '_blank');

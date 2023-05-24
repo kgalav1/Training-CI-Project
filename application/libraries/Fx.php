@@ -25,15 +25,15 @@ class Fx
         switch ($type) {
             case '1':
                 // For Add
-                $message = "A New $name Addded by $userName";
+                $message = "A New $name Added by $userName";
                 break;
             case '2':
                 // For Edit
-                $message = "$name (ID : $id) Updated by $userName";
+                $message = "Record $id of $name Updated by $userName";
                 break;
             case '3':
                 // For delete
-                $message = "$name (ID : $id) Deleted by $userName";
+                $message = "Record $id of $name Deleted by $userName";
                 break;
             case '4':
                 // For Search
@@ -56,7 +56,18 @@ class Fx
         if ($message == '')
             return;
 
+
         $logData = array('type' => $type, 'message' => $message, 'master' => $CI->router->fetch_class(), 'method' => $CI->router->fetch_method(), 'user_id' => $_SESSION['sno'], 'remote_ip' => $_SERVER['REMOTE_ADDR']);
         return $CI->Login_Model->enterUserLog($logData);
+    }
+
+    public function requireToVar($file, $data)
+    {
+        ob_start();
+        foreach ($data as $key => $val) {
+            $$key = $val;
+        }
+        require($file);
+        return ob_get_clean();
     }
 }

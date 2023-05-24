@@ -1,24 +1,46 @@
 <?php
-error_reporting(0);
-require_once("plugin/mpdf61/mpdf.php");
 
-$details = $this->Invoice_Model->editDetailsFill($data);
+use Mpdf\Tag\P;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$pdf_id['invoice_id'] = $id;
+
+$data = $this->Invoice_Model->editDetailsFill($pdf_id);
+// print_r($data);die;
+
+if (!empty($data)) {
+    ob_start();
+    foreach ($data as $key => $val) {
+        $$key = $val;
+    }
+    require('assets/pdf/PDF_format.php');
+    $html = ob_get_clean();
+    ob_end_flush();
+
+    $mpdf = new \Mpdf\Mpdf();
+    $mpdf->SetTitle('Invoice PDF');
+    $mpdf->WriteHTML($html);
+    $content = $mpdf->Output();
+    // echo $content;
+
+    $filename ="pdf/invoice-SAN" . $data['responce'][0]->invoice_id . '.pdf';
+    downloadPdf($filename, $html, 4, 'F');
+} else {
+    echo "No details found for invoice ID $id";
+}
+
+function downloadPDF($invoice ,$html, $margin = 0, $mode = 'F') {
+    $mpdf = new \Mpdf\Mpdf();
+    foreach ($html as $key => $content) {
+        if ($key > 0) {
+            $mpdf->AddPage();
+        }
+        $mpdf->WriteHTML($content);
+    }
+        return $mpdf->Output($invoice, $mode);
+   
+}
 
 
-
-$header="";
-$html = $this->fx->requireToVar('invoicemaster/PDF_format.php',$details);
-$mpdf=new mPDF('utf-8','A4','','','5','5',$topMargin,'15');
-$mpdf->SetTitle('Credit Note-'.$data->masterData->inc_id);
-$mpdf->SetDefaultBodyCSS('font-family', 'dejavusans, Geneva, sans-serif');
-$mpdf->SetDefaultBodyCSS('color', '#000');
-$mpdf->SetDefaultBodyCSS('font-size', '10');
-$mpdf->SetWatermarkImage('reportsHtml/images/borderBg.png',1,array('209',$borderHeight),array('0',$borderPositionY));
-$mpdf->showWatermarkImage = true;
-$mpdf->setHTMLHeader($header);
-$mpdf->setHTMLFooter('<p style="text-align:right; font-size:7px; color:#aaa;">'.$this->html->displayPoweredByinPdf().'Page {PAGENO} of {nbpg}</p>');
-$mpdf->WriteHTML($html);
-$output = (isset($mail) && $mail==1)? 'S':'I';
-$content = $mpdf->Output('credit_note-'.$data->masterData->inc_id.'.pdf', $output);   
-echo $content;
 ?>

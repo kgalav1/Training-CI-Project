@@ -1,7 +1,3 @@
-
-<?php
-
-?>
 <body>
     <div class="container" style="width: 100%;  text-align: center;">
         <div style=" width: 90%;">

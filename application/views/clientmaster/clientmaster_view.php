@@ -208,7 +208,6 @@
             })
 
             client_search();
-            // getCountry();
             $("#side_client").addClass("active");          
         });
 
@@ -423,7 +422,6 @@
                     success: function(result) {
                         var select = document.getElementById('state');
                         $("#state").html('');
-                        // $("#city").html('');
                         select.options[0] = new Option("Choose a state", "");
                         for (var i = 0; i < (result.state).length; i++) {
                             select.options[select.options.length] = new Option(result.state[i]['name'], result.state[i]['id']);

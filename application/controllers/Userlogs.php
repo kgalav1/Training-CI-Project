@@ -16,9 +16,10 @@ class Userlogs extends CI_Controller
         $this->load->view('userlogs/userlogs_view', array('users'=> $users));
     }
 
-    public function pagination()
+    public function pagination($sno = "")
     {
         $data = $this->input->post();
+        $data['sno'] = $sno;
         $get = $this->Logs_Model->pagination($data);
         $row = array($get)[0];
         $table_data = $this->load->view('userlogs/logtable_view', array('result' => $row), true);

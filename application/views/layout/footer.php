@@ -53,6 +53,7 @@
             duration: 1000,
             easing: 'easeInOutExpo'
         });
+        updateActivity();
     });
 
     function animt() {
@@ -63,4 +64,28 @@
             easing: 'easeInOutExpo'
         });
     }
+
+    function updateActivity() {
+        $.ajax({
+            url: "<?= base_url() ?>Logout/logoutOther",
+            type: 'POST',
+            dataType: "json",
+            success: function(responce) {
+                console.log(responce);
+                if (responce == 10) {
+                    $.notify("You're Logout by Admin", {
+                        globalPosition: 'bottom right',
+                        className: 'success'
+                    });
+                    setTimeout(myURL, 3000);
+                }
+            }
+        });
+    }
+
+    function myURL() {
+        window.location.href = "<?= base_url() ?>Logout";
+    }
+
+    setInterval(updateActivity, 100000);
 </script>

@@ -69,7 +69,7 @@ class Usermaster extends CI_Controller
         if ($this->form_validation->run() == TRUE) {
             $result = $this->User_Model->addupdate($data);
             if ($result['code'] == '3') { //edit
-                $this->fx->generateUserLogs(2, 'User', $data['sno'], '');
+                $this->fx->generateUserLogs(2, 'User', $data['snoEdit'], '');
                 echo "3";
             }
             if ($result['code'] == '2') {

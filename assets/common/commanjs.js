@@ -48,18 +48,16 @@ function sort(sort_type, field) {
 
     if (action == "user") {
         user_search();
-    }
-    if (action == "client") {
+    }else if (action == "client") {
         client_search();
-    }
-    if (action == "item") {
+    }else if (action == "item") {
         item_search();
-    }
-    if (action == "invoice") {
+    }else if (action == "invoice") {
         invoice_search();
-    }
-    if (action == "logs") {
+    }else if (action == "logs") {
         log_search();
+    }else if (action == "login_status") {
+        loginstatus_search();
     }
 
 }
@@ -200,6 +198,35 @@ function log_search(page) {
     });
 }
 
+// ------------------------------ LogIn Status search--------------------------------
+
+function loginstatus_search(page) {
+    var action = $("#action").val();
+    var loginstatus = $("#sloginstatus").val();
+    var name = $("#sname").val();
+    var limit = $("#list").val();
+    var sort_field = $("#sort_field").val() == "" ? "is_login" : $("#sort_field").val();
+    var sort_type = $("#sort_type").val() == "" ? "desc" : $("#sort_type").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/ciproject/Loginstatus/pagination",
+        data: {
+            action: action,
+            loginstatus: loginstatus,
+            name: name,
+            limit: limit,
+            page: page,
+            sort_field: sort_field,
+            sort_type: sort_type
+        },
+        dataType: 'Json',
+        success: function (data) {
+            $("#data").html(data.table_data);
+            $("#pagin").html(data.pagination);
+        },
+    });
+}
+
 // ------------------------------ Tab Hide Function--------------------------------
 
 function TabShow() {
@@ -323,33 +350,29 @@ function clear_val(data) {
         $("#semail").val("");
         $("#sphone").val("");
         user_search();
-    }
-
-    if (data == 'client') {
+    } else if (data == 'client') {
         $("#sname").val("");
         $("#semail").val("");
         $("#sphone").val("");
         client_search();
-    }
-
-    if (data == 'item') {
+    } else if (data == 'item') {
         $("#sname").val("");
         item_search();
-    }
-
-    if (data == 'invoice') {
+    } else if (data == 'invoice') {
         $("#sinvoicenumber").val("");
         $("#sname").val("");
         $("#semail").val("");
         $("#sphone").val("");
         invoice_search();
-    }
-
-    if (data == 'logs') {
+    } else if (data == 'logs') {
         $("#sid").val("");
         $("#stype").val("");
         $("#sname").val("");
         log_search();
+    } else if (data == 'logs') {
+        $("#sid").val("");
+        $('#sloginstatus').prop('selectedIndex', 0);
+        loginstatus_search();
     }
 }
 
@@ -371,6 +394,7 @@ function darkMode() {
 
 function apply() {
     if (localStorage.getItem("theme") === "dark") {
+        alert("hey");
         darkMode();
     }
 }
@@ -386,7 +410,7 @@ function findDark() {
 }
 
 $('.sub-menu ul').hide();
-$(".sub-menu a").click(function () {
+$(".sub-menu a").on("click", function () {
     $(this).parent(".sub-menu").children("ul").slideToggle("100");
     $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
 });
@@ -439,3 +463,15 @@ function myFunction_set() {
 
 window.onload = myFunction_set();
 
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    localStorage.setItem("colorbg", color);
+    localStorage.setItem("colorbgchild", color);
+    myFunction_set();
+}
+
+// var interval = setInterval(function () { updateActivity(); }, 5000);

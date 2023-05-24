@@ -355,3 +355,46 @@ input::placeholder {
 .prof {
     padding: 10px 10px 0px 10px;
 }
+
+.rand{
+    color: var(--main) !important;
+}
+
+.online{
+    display: inline-block;
+    background-color: #5ce316;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 0px !important;
+    margin-right: 5px;
+    animation: 1s blink-green ease infinite;
+}
+
+.offline{
+    display: inline-block;
+    background-color: grey;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 0px !important;
+    margin-right: 5px;
+    animation: 1s blink-grey ease infinite;
+}
+
+.btn-custom{
+    padding: 0px 10px;
+    border-radius: 5px;
+    width: 95px;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+@keyframes blink-green {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }

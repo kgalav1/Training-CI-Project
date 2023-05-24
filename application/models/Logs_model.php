@@ -41,7 +41,7 @@ class Logs_Model extends CI_Model
 
     public function userName()
     {
-        $users = $this->db->select('sno, name')->from('signupdetails')->order_by('sno')->get()->result_array();
+        $users = $this->db->select('sno, name, is_login')->from('signupdetails')->order_by('sno')->get()->result_array();
         return array('users' => $users);
     }
 }

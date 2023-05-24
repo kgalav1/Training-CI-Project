@@ -5,7 +5,9 @@ class Profile_Model extends CI_Model
     public function profile_data()
     {
         $sdata = $this->session->userdata;
-        $getdata = $this->db->select('*')->from('signupdetails')->where('sno', $sdata['sno'])->get()->result_array();
+        // print_r($sdata['loginSession']['sno']);
+        
+        $getdata = $this->db->select('*')->from('signupdetails')->where('sno', $sdata['loginSession']['sno'])->get()->result_array();
         return array('data' => $getdata);
     }
 
@@ -13,7 +15,7 @@ class Profile_Model extends CI_Model
     {
 
         $sdata = $this->session->userdata;
-        $sno = $sdata['sno'];
+        $sno = $sdata['loginSession']['sno'];
         $phone = $data["phone"];
         $address = $data["address"];
         $designation = $data["designation"];

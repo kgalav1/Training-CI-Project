@@ -42,7 +42,7 @@
 
                                 <div class="mb-4 mx-3 d-inline-block">
                                     <input type="hidden" name="action" id="action" value="logs" />
-                                    <button type="button" name="search" id="search" class="btn btn-primary" onclick="log_search(); clickME();"> <i class="fa-solid fa-magnifying-glass me-2"></i>Search
+                                    <button type="button" name="search" id="search" class="btn btn-primary" onclick="log_search();"> <i class="fa-solid fa-magnifying-glass me-2"></i>Search
                                     </button>
                                     <button type="button" name="reset" id="reset" class="btn btn-success ms-2" onclick="clear_val('logs');"> <i class="fa-solid fa-rotate-right me-2"></i>Reset
                                     </button>

@@ -359,36 +359,36 @@ function validateEmail() {
 }
 
 
-function pass() {
-    var returnval = true;
-    var lowerCase = new RegExp('[a-z]'),
-        upperCase = new RegExp('[A-Z]'),
-        numbers = new RegExp('[0-9]'),
-        specialCharacter = new RegExp('[!,%,&,@,#,$,^,*,?,_,~]');
-    var password = document.getElementById('apassword').value;
-    if (password.length < 8) {
-        returnval = false;
-    }
-    if (!password.match(lowerCase)) {
-        returnval = false;
-    }
-    if (!password.match(upperCase)) {
-        returnval = false;
-    }
-    if (!password.match(numbers)) {
-        returnval = false;
-    }
-    if (!password.match(specialCharacter)) {
-        returnval = false;
-    }
+// function pass() {
+//     var returnval = true;
+//     var lowerCase = new RegExp('[a-z]'),
+//         upperCase = new RegExp('[A-Z]'),
+//         numbers = new RegExp('[0-9]'),
+//         specialCharacter = new RegExp('[!,%,&,@,#,$,^,*,?,_,~]');
+//     var password = document.getElementById('apassword').value;
+//     if (password.length < 8) {
+//         returnval = false;
+//     }
+//     if (!password.match(lowerCase)) {
+//         returnval = false;
+//     }
+//     if (!password.match(upperCase)) {
+//         returnval = false;
+//     }
+//     if (!password.match(numbers)) {
+//         returnval = false;
+//     }
+//     if (!password.match(specialCharacter)) {
+//         returnval = false;
+//     }
 
-    if (returnval == false) {
-        $.notify("Password not fullfill conditions", {
-            globalPosition: 'bottom right',
-            className: 'error'
-        });
-    }
-    return returnval;
-}
+//     if (returnval == false) {
+//         $.notify("Password not fullfill conditions", {
+//             globalPosition: 'bottom right',
+//             className: 'error'
+//         });
+//     }
+//     return returnval;
+// }
 
 

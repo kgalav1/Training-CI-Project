@@ -9,6 +9,9 @@ class Dashboard extends CI_Controller
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $this->load->model('Login_Model');
         $data = $this->Login_Model->logindata();
+        
+        // echo '<pre>';
+        // print_r($hu);die;
         $this->load->view($page, $data);
     }
 }
