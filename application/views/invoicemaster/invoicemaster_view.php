@@ -156,7 +156,6 @@
                 <!------------------------------ Add Users Form ------------------------------->
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
                     <div class="form mt-3" id="addblock">
                         <div class="mybox" style="padding: 1%; border-radius: 10px;">
                             <form class="mt-4 fw-bold" id="add_name">
@@ -196,7 +195,6 @@
                                         <div class="mb-3 col-md-3" id="addressdiv">
                                             <label for="address" class="form-label">Address</label>
                                             <input type="text" class="form-control empty" id="aaddress" name="address" aria-describedby="emailHelp" readonly>
-
                                             <!-- <a class="" id="client" href="clientmaster.php">Not Our Client?</a> -->
                                         </div>
                                     </div>
@@ -217,15 +215,13 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody id="dynamic_item">
-                                                        <tr class='tr_input' id='row_'>
-                                                            <td class="d-none"><input type="hidden" name="itemsno[]" class="itemsno">
-                                                            </td>
-                                                            <td><input type='text' id='itemname_1' class='itemname not' name='itemname[]' placeholder='Enter Item Name' value="" onkeypress="itemsearch()" autocomplete="off"></td>
-                                                            <td><input type='text' class="itemprice" name='itemprice[]' id='itemprice_1' value="" dir="rtl" readonly>
-                                                            </td>
-                                                            <td><input type='number' class="itemquantity" id='itemquantity_1' value="" name='itemquantity[]' min="1" style="text-align: right;"></td>
-                                                            <td><input type='text' class="itemamount" id="itemamount_1" name='itemamount[]' dir="rtl" readonly></td>
-                                                            <td><button type='button' class='bremove d-none' id="delete"><img style='width:24px' src='<?= base_url() ?>assets/images/delete.png' alt='send'></button></td>
+                                                        <tr class='itemRow'>
+                                                            <td class="d-none"><input type="hidden" name="itemsno[]" class="itemsno same" onchange="checksame(this);"></td>
+                                                            <td><input type='text' class='itemname not' name='itemname[]' placeholder='Enter Item Name' onkeypress="itemsearch()" autocomplete="off"></td>
+                                                            <td><input type='text' class="itemprice" name='itemprice[]' dir="rtl" readonly></td>
+                                                            <td><input type='number' class="itemquantity" name='itemquantity[]' min="1" style="text-align: right;"></td>
+                                                            <td><input type='text' class="itemamount" name='itemamount[]' dir="rtl" readonly></td>
+                                                            <td><button type='button' class='bremove'><img style='width:24px' src='<?= base_url() ?>assets/images/delete.png' alt='send'></button></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -235,7 +231,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-8">
-                                        <button type="button" name="addmore" id="addmore" class="btn btn-outline-success ms-4" onclick="addHide();">Add
+                                        <button type="button" name="addmore" id="addmore" class="btn btn-outline-success ms-4">Add
                                             More</button>
                                     </div>
                                     <div class="col-md-2" style="max-width: 135px; margin-top: 5px;">
@@ -247,7 +243,6 @@
 
                                     <div class="row mt-4 mb-4">
                                         <div class="col-md-11">
-
                                         </div>
                                         <div class="col-md-1">
                                             <input type="hidden" name="form_action" id="form_action" value="insert" />
@@ -261,7 +256,6 @@
                 </div>
             </div>
         </div>
-
 
         <?php $this->load->view('layout/footer'); ?>
 
@@ -305,12 +299,12 @@
                         invoiceTabShow();
                         console.log(responce.responce.length);
                         $("#asno").val(responce.responce[0].client_id);
-                        $('#anumber').val(responce.responce[0].invoice_id)
-                        $('#adate').val(responce.responce[0].invoice_date)
-                        $('#aname').val(responce.responce[0].client_name)
-                        $('#aemail').val(responce.responce[0].email)
-                        $('#aphone').val(responce.responce[0].phone)
-                        $('#aaddress').val(responce.responce[0].full_address)
+                        $('#anumber').val(responce.responce[0].invoice_id);
+                        $('#adate').val(responce.responce[0].invoice_date);
+                        $('#aname').val(responce.responce[0].client_name);
+                        $('#aemail').val(responce.responce[0].email);
+                        $('#aphone').val(responce.responce[0].phone);
+                        $('#aaddress').val(responce.responce[0].full_address);
                         $("#tamount").val(responce.responce[0].grand_total);
                         $("#adate").prop("readonly", true);
                         $('#form_action').val("edit");
@@ -323,23 +317,22 @@
                         for (var i = 0; i < responce.responce.length; i++) {
 
                             if (i == 0) {
-                                trFrstChild.find(".itemsno").val(responce.responce[i].item_id)
+                                trFrstChild.find(".itemsno").val(responce.responce[i].item_id);
                                 trFrstChild.find(".itemname").val(responce.responce[i].name);
-                                trFrstChild.find(".itemprice").val(responce.responce[i].item_price)
-                                trFrstChild.find(".itemquantity").val(responce.responce[i].item_quantity)
-                                trFrstChild.find(".itemamount").val(responce.responce[i].item_amount)
+                                trFrstChild.find(".itemprice").val(responce.responce[i].item_price);
+                                trFrstChild.find(".itemquantity").val(responce.responce[i].item_quantity);
+                                trFrstChild.find(".itemamount").val(responce.responce[i].item_amount);
                             } else {
-                                $('#delete').removeClass('d-none');
+                                // $('#delete').removeClass('d-none');
                                 var cloneChild = trFrstChild.clone();
-                                cloneChild.find(".itemsno").val(responce.responce[i].item_id)
+                                cloneChild.find(".itemsno").val(responce.responce[i].item_id);
                                 cloneChild.find(".itemname").val(responce.responce[i].name);
-                                cloneChild.find(".itemprice").val(responce.responce[i].item_price)
-                                cloneChild.find(".itemquantity").val(responce.responce[i].item_quantity)
-                                cloneChild.find(".itemamount").val(responce.responce[i].item_amount)
+                                cloneChild.find(".itemprice").val(responce.responce[i].item_price);
+                                cloneChild.find(".itemquantity").val(responce.responce[i].item_quantity);
+                                cloneChild.find(".itemamount").val(responce.responce[i].item_amount);
 
                                 $('#dynamic_item').append(cloneChild);
                                 CalculateGrandTotal();
-
                             }
                         }
                     }
@@ -474,7 +467,6 @@
                         parentTr.find('.itemsno').val(ui.item.sno).trigger('change');
                         parentTr.find('.itemprice').val(ui.item.price).trigger('change');
                         parentTr.find('.itemquantity').val(1).trigger('change');
-
                     },
                     focus: function(event, ui) {}
                 }).focus(function() {
@@ -524,8 +516,8 @@
                     },
                     type: "POST",
                     contentType: false,
-                        cache: false,
-                        processData: false,
+                    cache: false,
+                    processData: false,
                     dataType: 'json',
                     success: function(data) {
                         console.log(data);
@@ -573,44 +565,48 @@
             // ---------------------------------- Add More ------------------------------------------------
 
             $('#addmore').click(function() {
-
-                // Get last id 
-                var lastname_id = $('.tr_input input[type=text]:nth-child(1)').last().attr('id');
-                var split_id = lastname_id.split('_');
-
-                // New index
-                var index = Number(split_id[1]) + 1;
-
-                // Create row with input elements
-                var html = "<tr class='tr_input append_item' id='row_" + index +
-                    "'> <td class='d-none'><input type='hidden' name='itemsno[]' class='itemsno'></td><td><input type='text' class='itemname' name='itemname[]' id='itemname_" +
-                    index +
-                    "' placeholder='Enter Item Name' onkeypress='itemsearch()'></td><td><input type='text' class='itemprice' name='itemprice[]' id='itemprice_" +
-                    index +
-                    "' dir='rtl' readonly></td><td><input type='number' class='itemquantity' min='1' name='itemquantity[]' id='itemquantity_" +
-                    index +
-                    " .'style='text-align: right;''.'></td><td><input type='text' class='itemamount' name='itemamount[]' id='itemamount_" +
-                    index +
-                    "' dir='rtl' readonly></td> <td><button type='button' class='bremove' id='delete'><img style='width:24px' src='<?= base_url() ?>assets/images/delete.png' alt='delete'></button></td></tr>";
-
-                // Append data
-                $('tbody').append(html);
+                var newRow = $('.itemRow:first').clone();
+                newRow.find('input').val('');
+                $('#itemTable tbody').append(newRow);
                 CalculateGrandTotal();
+            });
 
+
+            function checksame(newval) {
+                let itemSno = document.querySelectorAll(".same");
+                let valarr = [];
+                itemSno.forEach((a) => {
+                    valarr.push(a.value);
+
+                });
+                let count = 0;
+                for (let i = 0; i < valarr.length; i++) {
+                    if (valarr[i] == newval.value) {
+                        count++;
+                    }
+                }
+                if (count > 1) {
+                    alert('Item name already exists!');
+                    $(newval).closest('tr').find('button').trigger('click');
+                }
+            }
+
+
+            $(document).on('click', '.bremove', function(e) {
+                let trLen = $(this).parents('tbody').find('tr').length;
+                if (trLen > 1) {
+                    $(this).parents('tr').first().remove();
+                    CalculateGrandTotal();
+                }
+                // addHide();
             });
-            $(document).on('click', '#delete', function(e) {
-                e.preventDefault();
-                $(this).parents('tr').first().remove();
-                CalculateGrandTotal();
-                addHide();
-            });
+
 
             $(document).on('click', '#mail', function() {
                 var currentRow = $(this).closest("tr");
                 var id = currentRow.find("td:eq(0)").text();
                 var name = currentRow.find("td:eq(1)").text();
                 var email = currentRow.find("td:eq(2)").text();
-                console.log(id, name, email);
                 $('#invo_id').val(id);
                 $('#invoice_email').val(email);
                 $("#invoice_subject").val("Invoice Details").css({

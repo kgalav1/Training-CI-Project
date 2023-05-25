@@ -16,10 +16,12 @@
 
 
 -- Dumping database structure for login
+DROP DATABASE IF EXISTS `login`;
 CREATE DATABASE IF NOT EXISTS `login` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `login`;
 
 -- Dumping structure for table login.cities
+DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -47975,6 +47977,7 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 	(48356, 'Zarzal', 805);
 
 -- Dumping structure for table login.clientmaster
+DROP TABLE IF EXISTS `clientmaster`;
 CREATE TABLE IF NOT EXISTS `clientmaster` (
   `sno` int(11) NOT NULL AUTO_INCREMENT,
   `client_name` varchar(50) NOT NULL,
@@ -48002,6 +48005,7 @@ INSERT INTO `clientmaster` (`sno`, `client_name`, `email`, `phone`, `password`, 
 	(11, 'himanshu galav', 'himanshu.galav56@gmail.com', '8468764654', '$2y$10$TlRUhau/T3Vu3OptMIjOqO6sNGtcv.LLh4zRA78Fzix', 'iit ropar', '101', '32', '3262');
 
 -- Dumping structure for table login.countries
+DROP TABLE IF EXISTS `countries`;
 CREATE TABLE IF NOT EXISTS `countries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sortname` varchar(3) NOT NULL,
@@ -48260,6 +48264,7 @@ INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES
 	(246, 'ZW', 'Zimbabwe', 263);
 
 -- Dumping structure for table login.invoice
+DROP TABLE IF EXISTS `invoice`;
 CREATE TABLE IF NOT EXISTS `invoice` (
   `sno` int(255) NOT NULL AUTO_INCREMENT,
   `invoice_no` int(255) NOT NULL,
@@ -48274,6 +48279,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 -- Dumping data for table login.invoice: ~0 rows (approximately)
 
 -- Dumping structure for table login.invoice_item
+DROP TABLE IF EXISTS `invoice_item`;
 CREATE TABLE IF NOT EXISTS `invoice_item` (
   `sno` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
@@ -48286,9 +48292,9 @@ CREATE TABLE IF NOT EXISTS `invoice_item` (
   KEY `invoice_id` (`invoice_id`),
   CONSTRAINT `invoice_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `itemmaster` (`sno`),
   CONSTRAINT `invoice_item_ibfk_2` FOREIGN KEY (`invoice_id`) REFERENCES `main_invoice` (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table login.invoice_item: ~8 rows (approximately)
+-- Dumping data for table login.invoice_item: ~13 rows (approximately)
 INSERT INTO `invoice_item` (`sno`, `item_id`, `item_price`, `item_quantity`, `item_amount`, `invoice_id`) VALUES
 	(4, 2, 90000, 1, 90000, 1),
 	(5, 3, 500, 5, 2500, 1),
@@ -48297,9 +48303,15 @@ INSERT INTO `invoice_item` (`sno`, `item_id`, `item_price`, `item_quantity`, `it
 	(10, 4, 1000, 0, 0, 2),
 	(11, 1, 5000, 1, 5000, 3),
 	(12, 2, 90000, 2, 180000, 3),
-	(13, 1, 5000, 25, 125000, 4);
+	(13, 1, 5000, 25, 125000, 4),
+	(14, 1, 5000, 1, 5000, 5),
+	(15, 1, 5000, 1, 5000, 5),
+	(16, 1, 5000, 0, 0, 6),
+	(17, 1, 5000, 1, 5000, 7),
+	(18, 1, 5000, 0, 0, 8);
 
 -- Dumping structure for table login.itemmaster
+DROP TABLE IF EXISTS `itemmaster`;
 CREATE TABLE IF NOT EXISTS `itemmaster` (
   `sno` int(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
@@ -48317,6 +48329,7 @@ INSERT INTO `itemmaster` (`sno`, `name`, `desc`, `price`, `image`) VALUES
 	(4, 'bike', 'italian bike', '1000', 'upload/mv.jpg');
 
 -- Dumping structure for table login.main_invoice
+DROP TABLE IF EXISTS `main_invoice`;
 CREATE TABLE IF NOT EXISTS `main_invoice` (
   `invoice_id` int(11) NOT NULL AUTO_INCREMENT,
   `client_id` int(11) NOT NULL,
@@ -48325,16 +48338,21 @@ CREATE TABLE IF NOT EXISTS `main_invoice` (
   PRIMARY KEY (`invoice_id`),
   KEY `client_id` (`client_id`),
   CONSTRAINT `main_invoice_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clientmaster` (`sno`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table login.main_invoice: ~4 rows (approximately)
+-- Dumping data for table login.main_invoice: ~8 rows (approximately)
 INSERT INTO `main_invoice` (`invoice_id`, `client_id`, `grand_total`, `invoice_date`) VALUES
 	(1, 2, 94500, '2022-08-25'),
 	(2, 2, 500, '2022-10-08'),
 	(3, 3, 185000, '2022-11-19'),
-	(4, 2, 125000, '2023-01-06');
+	(4, 2, 125000, '2023-01-06'),
+	(5, 7, 10000, '2023-05-24'),
+	(6, 4, 0, '2023-05-25'),
+	(7, 6, 5000, '2023-05-25'),
+	(8, 6, 0, '2023-05-25');
 
 -- Dumping structure for table login.notes
+DROP TABLE IF EXISTS `notes`;
 CREATE TABLE IF NOT EXISTS `notes` (
   `sno` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
@@ -48349,6 +48367,7 @@ INSERT INTO `notes` (`sno`, `title`, `TEXT`, `DATE`) VALUES
 	(4, 'test', 'test', '2022-07-29');
 
 -- Dumping structure for table login.signupdetails
+DROP TABLE IF EXISTS `signupdetails`;
 CREATE TABLE IF NOT EXISTS `signupdetails` (
   `sno` int(5) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
@@ -48371,22 +48390,25 @@ CREATE TABLE IF NOT EXISTS `signupdetails` (
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`sno`),
   FULLTEXT KEY `name` (`name`,`email`,`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table login.signupdetails: ~10 rows (approximately)
 INSERT INTO `signupdetails` (`sno`, `name`, `email`, `phone`, `password`, `address`, `designation`, `gender`, `country`, `state`, `twitter`, `insta`, `facebook`, `token`, `otp`, `status`, `is_login`, `session_id`, `date`) VALUES
 	(1, 'Khushal Galav', 'k.galav077@gmail.com', '8114404305', '$2y$10$z3IYDJHiMzAut6DS/Y3cXeI0zUg6rQvGbWY2vVMfnU9OLT7PvpEei', 'Ramgarh', 'Full stack Devloper', 'male', 'India', 'Rajasthan', '', '@khushal.11', 'Khushalgalav', '5269351ec77af60eb5515562b4b971', 'd49fTc', 'active', 1, '345414', '2022-08-23 12:34:01'),
 	(2, 'Tarun Pandit', 'aruntiwari8933@gmail.com', '9140204796', '$2y$10$kpePQkiS70oCj5h91jXBP./kWdHBRvFprB/R41.wHnaxdD81g2dq6', '', '', '', '', '', '', '', '', '3c838a94081e8c8ac2052c52220d45', '', 'active', 0, '', '2022-08-23 12:43:28'),
-	(3, 'Harish Topi', 'harish@gmail.com', '8796463464', '$2y$10$QjGsx3z5PdbKLAaK6Cj1G.dFdK1zVhYkQInvRX.L.DD3hdxQTOJk2', '', '', '', '', '', '', '', '', '19caf1c4f2ca35ae8c0e4e45967d3a', '', 'active', 0, '', '2022-08-24 07:07:54'),
+	(3, 'Harish kumar', 'harish@gmail.com', '8796463464', '$2y$10$QjGsx3z5PdbKLAaK6Cj1G.dFdK1zVhYkQInvRX.L.DD3hdxQTOJk2', '', '', '', '', '', '', '', '', '19caf1c4f2ca35ae8c0e4e45967d3a', '', 'active', 0, '', '2022-08-24 07:07:54'),
 	(4, 'Lokesh kumhar', 'lokesh123@gmail.com', '9789796879', '$2y$10$U/ask8eLF5p6QR8MUhEDLef.bFWL90eC1QgwRw2ER.CPGgNC7..aO', '', '', '', '', '', '', '', '', 'cfdefbcd04d50956e06c444d82559d', '', 'active', 0, '', '2022-08-24 07:08:20'),
 	(5, 'Gourav Sharma', 'gourav.1@gmail.com', '8665496746', '$2y$10$Fsh4/O0zfroHBkZDbFC..eeLeLTC51LUcpNwMlSxS0QmM0Sh/Toie', '', '', '', '', '', '', '', '', 'c5e112eece723faa7131bfbf8a83cc', '', 'active', 0, '', '2022-08-24 07:08:49'),
 	(6, 'Prince Sharma', 'prince.sharma@gmail.com', '8464646434', '$2y$10$Y1hMvoJ1AAXy1Vwns.v/x.9ceGVK9tWTifONdwx7ueAdiYri8bkYW', '', '', '', '', '', '', '', '', '62a05645a62728fc0a3ebfe379bda0', '', 'active', 0, '', '2022-08-24 07:09:26'),
 	(22, 'Himanshu Galav', 'd.galav077@gmail.com', '6367630795', '$2y$10$WDilg3jvHVgGYP86rMc0r.rhjTcEu0ZCNsApmCPoefAz3w.wWjBuq', '', '', 'male', '', '', '', '', '', '2afd302f3755b3834c98f9436766ef', '', 'active', 0, '', '2022-11-12 12:47:26'),
 	(23, 'Praful Shukla', 'praful.kumar@sansoftwares.com', '9875186476', '$2y$10$PE1l9lWwu0ikjUzfPwJIKenZrfCaZtgiLjy6n2esAI8GrY2zRltm.', '', '', '', '', '', '', '', '', 'b3ba84fe95a4c128ba0152208392e9', '', 'active', 0, '', '2022-11-26 05:53:35'),
 	(24, 'Sourabh Shukla', 'sourabh@sansoftwares.com', '9679794654', '$2y$10$2iFPbBrwQjqjyv4ixSczyOsQ1J7fZkW4T74smlVth2yTpZdf4y0nC', '', '', '', '', '', '', '', '', '2eed490a0a7444937d56449d4de985', '', 'active', 0, '', '2022-11-30 08:56:06'),
-	(25, 'Hrithik', 'h12@gmail.com', '7666896033', '$2y$10$ibbIzMo5PDP2SvesN/qbpub7V25KJ1LXTsnWTILVb7g0jtmFEbjga', '', '', '', '', '', '', '', '', 'ff545dd6aee8e27141d4fb5adbf0ad', '', 'active', 0, '', '2023-02-23 10:55:20');
+	(25, 'Hrithik', 'h12@gmail.com', '7666896033', '$2y$10$ibbIzMo5PDP2SvesN/qbpub7V25KJ1LXTsnWTILVb7g0jtmFEbjga', '', '', '', '', '', '', '', '', 'ff545dd6aee8e27141d4fb5adbf0ad', '', 'active', 0, '', '2023-02-23 10:55:20'),
+	(26, 'kishan yadav', 'kishan@sansoftwares.com', '8794547987', '$2y$10$vaME8BYmP98tHj5Olbq58ei3jobUuLY5Q2w8RqUaRohsrRJ7lF.jK', '', '', '', '', '', '', '', '', '760300e96bdec48adb444f9f530ed9', '', 'active', 0, '', '2023-05-23 08:37:24'),
+	(27, 'test san', 'test@sansoftwares.com', '6744545454', '$2y$10$9aMWjpzlw9A7.tbqxHKAp.nOsEVL.HtyKGYJtURSwtZORq6ZnKh9y', '', '', '', '', '', '', '', '', '0060204a2862bcd7d343a58a210739', '', 'active', 0, '', '2023-05-23 08:41:58');
 
 -- Dumping structure for table login.states
+DROP TABLE IF EXISTS `states`;
 CREATE TABLE IF NOT EXISTS `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -52489,6 +52511,7 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 	(4121, 'Lienchiang County', 214);
 
 -- Dumping structure for table login.theme
+DROP TABLE IF EXISTS `theme`;
 CREATE TABLE IF NOT EXISTS `theme` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nav` varchar(50) NOT NULL,
@@ -52505,6 +52528,7 @@ INSERT INTO `theme` (`id`, `nav`, `side`, `th`, `user_id`) VALUES
 	(1, '#d64c4c', '#ffffff', '#000000', 1);
 
 -- Dumping structure for table login.userlogs
+DROP TABLE IF EXISTS `userlogs`;
 CREATE TABLE IF NOT EXISTS `userlogs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `master` varchar(255) NOT NULL,
@@ -52517,7 +52541,7 @@ CREATE TABLE IF NOT EXISTS `userlogs` (
   PRIMARY KEY (`id`),
   KEY `FK_userlogs_signupdetails` (`user_id`),
   CONSTRAINT `FK_userlogs_signupdetails` FOREIGN KEY (`user_id`) REFERENCES `signupdetails` (`sno`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table login.userlogs: ~86 rows (approximately)
 INSERT INTO `userlogs` (`id`, `master`, `method`, `user_id`, `type`, `message`, `remote_ip`, `datetime`) VALUES

@@ -63,15 +63,27 @@ class Invoicemaster extends CI_Controller
         $rules = array(
             array(
                 'field' => 'name',
-                'rules' => 'required'
-            ),
-            array(
-                'field' => 'phone',
-                'rules' => 'required'
+                'rules' => 'trim|required'
             ),
             array(
                 'field' => 'itemname[]',
+                'label' => 'Item Name',
                 'rules' => 'required'
+            ),
+            array(
+                'field' => 'itemquantity[]',
+                'label' => 'Item Quantity',
+                'rules' => 'required|greater_than_equal_to[1]|trim'
+            ),
+            array(
+                'field' => 'itemamount[]',
+                'label' => 'Item Amount',
+                'rules' => 'required|trim|numeric'
+            ),
+            array(
+                'field' => 'tamount',
+                'label' => 'Total Amount',
+                'rules' => 'required|trim|numeric'
             )
            
         );
@@ -83,8 +95,6 @@ class Invoicemaster extends CI_Controller
             echo json_encode(array('statusCode' => 400, 'error' => strip_tags(validation_errors())));
             return;
         }
-
-        // print_r($result);die;
     }
 
     public function sendMail()

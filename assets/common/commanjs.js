@@ -292,13 +292,13 @@ function invoicehide() {
     window.location.reload();
 }
 
-function addHide() {
+// function addHide() {
 
-    var trLength = $("#itemTable").find("tbody tr").length;
-    if (trLength > 1) {
-        $("#itemTable").find("tbody tr:first td:nth-child(6)").removeClass("d-none");
-    }
-}
+//     var trLength = $("#itemTable").find("tbody tr").length;
+//     if (trLength > 1) {
+//         $("#itemTable").find("tbody tr:first td:nth-child(6)").removeClass("d-none");
+//     }
+// }
 
 // ---------------------------------------------Logout Function-----------------------------------
 
